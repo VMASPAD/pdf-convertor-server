@@ -1,0 +1,5 @@
+Flask==2.3.3
+weasyprint==60.2
+requests==2.31.0
+pydyf==0.10.0
+flask-cors==3.0.10
