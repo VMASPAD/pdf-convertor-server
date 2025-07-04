@@ -19,16 +19,16 @@ def eliminateFolder(name):
     """
 
     data = request.get_json()
-    name = data.get('name')
-    folder_path = f"./pdfs/{name}"
+    nameArchive = data.get('name')
+    folder_path = f"./pdfs/{nameArchive}"
 
     if Path(folder_path).exists():
         shutil.rmtree(folder_path)
         print(f"Carpeta {folder_path} eliminada")
-        return jsonify({"message": f"Carpeta {name} eliminada"}), 200
+        return jsonify({"message": f"Carpeta {nameArchive} eliminada"}), 200
     else:
         print(f"La carpeta {folder_path} no existe")
-        return jsonify({"message": f"Carpeta {name} no existe"}), 404
+        return jsonify({"message": f"Carpeta {nameArchive} no existe"}), 404
 
 @app.route('/generate-pdf', methods=['POST'])
 def generate_pdf():
