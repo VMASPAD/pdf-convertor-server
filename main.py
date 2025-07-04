@@ -13,7 +13,7 @@ def savePdf(name):
     HTML(html_path).write_pdf(pdf_path)
 
 @app.route('/eliminate-pdf', methods=['POST'])
-def eliminateFolder(name):
+def eliminateFolder():
     """
     Elimina la carpeta y su contenido
     """
@@ -69,7 +69,6 @@ def generate_pdf():
         
     except Exception as e:
         print(f"Error al generar PDF: {e}")
-        eliminateFolder(name)
         return jsonify({"error": f"Error al generar PDF: {str(e)}"}), 500
         
 
