@@ -7,18 +7,26 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-def savePdf(name):
+def savePdf(name, template=1):
     html_path = f"./pdfs/{name}/{name}.html"
     pdf_path = f"./pdfs/{name}/{name}.pdf"
-    print(f"Generando PDF desde {html_path} a {pdf_path}")
-    font_config = FontConfiguration() 
-    css = CSS(string='''
-        @font-face {
-            font-family: Gentium;
-            src: url(https://example.com/fonts/Gentium.otf);
-        }
-        h1 { font-family: Gentium }''', font_config=font_config)
-    HTML(html_path).write_pdf(pdf_path, stylesheets=[css], font_config=font_config)
+    print(f"Generando PDF desde {html_path} a {pdf_path} con plantilla {template}")
+    
+    # Seleccionar el archivo CSS según la plantilla
+    css_file = f"{template}.css"
+    css_path = Path(css_file)
+    
+    font_config = FontConfiguration()
+    
+    # Leer el contenido del archivo CSS seleccionado
+    if css_path.exists():
+        css_content = css_path.read_text(encoding='utf-8')
+        css = CSS(string=css_content, font_config=font_config)
+        HTML(html_path).write_pdf(pdf_path, stylesheets=[css], font_config=font_config)
+    else:
+        print(f"Archivo CSS {css_file} no encontrado, usando CSS vacío")
+        css = CSS(string='', font_config=font_config)
+        HTML(html_path).write_pdf(pdf_path, stylesheets=[css], font_config=font_config)
 
 @app.route('/eliminate-pdf', methods=['POST'])
 def eliminateFolder():
@@ -27,24 +35,25 @@ def eliminateFolder():
     """
 
     data = request.get_json()
-    nameArchive = data.get('name')
-    folder_path = f"./pdfs/{nameArchive}"
+    name = data.get('name')
+    folder_path = f"./pdfs/{name}"
 
     if Path(folder_path).exists():
         shutil.rmtree(folder_path)
         print(f"Carpeta {folder_path} eliminada")
-        return jsonify({"message": f"Carpeta {nameArchive} eliminada"}), 200
+        return jsonify({"message": f"Carpeta {name} eliminada"}), 200
     else:
         print(f"La carpeta {folder_path} no existe")
-        return jsonify({"message": f"Carpeta {nameArchive} no existe"}), 404
+        return jsonify({"message": f"Carpeta {name} no existe"}), 404
 
 @app.route('/generate-pdf', methods=['POST'])
 def generate_pdf():
     """
     Endpoint para generar PDF desde HTML
     Espera JSON con:
-    - nombre: nombre del archivo (sin extensión)
-    - contenido_html: contenido HTML a convertir
+    - name: nombre del archivo (sin extensión)
+    - content: contenido HTML a convertir
+    - template: número de plantilla CSS (1, 2, o 3) - opcional, por defecto 1
     """
     try:
         # Obtener datos del request
@@ -55,7 +64,11 @@ def generate_pdf():
         
         name = data.get('name')
         content = data.get('content')
-        template = data.get('template')
+        template = data.get('template', 1)  # Valor por defecto: plantilla 1
+        
+        # Validar que template sea un número válido (1, 2, o 3)
+        if template not in [1, 2, 3]:
+            template = 1
         
         if not name or not content:
             return jsonify({"error": "Se requieren 'name' y 'content'"}), 400
@@ -65,7 +78,7 @@ def generate_pdf():
         Path(f"pdfs/{name}/{name}.html").write_text(f"{content}", encoding='utf-8')
         
         # Generar PDF
-        savePdf(name)
+        savePdf(name, template)
         
         # Devolver el archivo PDF
         pdf_path = f"pdfs/{name}/{name}.pdf"
@@ -78,6 +91,10 @@ def generate_pdf():
         
     except Exception as e:
         print(f"Error al generar PDF: {e}")
+        # Eliminar la carpeta creada en caso de error
+        folder_path = f"./pdfs/{name}"
+        if Path(folder_path).exists():
+            shutil.rmtree(folder_path)
         return jsonify({"error": f"Error al generar PDF: {str(e)}"}), 500
         
 

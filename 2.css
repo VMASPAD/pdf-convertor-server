@@ -1,0 +1,197 @@
+/* Plantilla 2: Estilo Vibrante y Creativo */
+@font-face {
+  font-family: 'Inter';
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+}
+
+@page {
+  margin: 2.5cm;
+  @bottom-left {
+    color: #ec4899;
+    content: '✨ Thank you for your business!';
+    font-weight: bold;
+  }
+  @bottom-right {
+    color: #7c3aed;
+    content: 'Made with love | yourcompany.com';
+    font-size: 10pt;
+    font-weight: 600;
+  }
+}
+
+html {
+  background: linear-gradient(135deg, #fce7f3 0%, #e0e7ff 100%);
+  color: #7c2d92;
+  font-family: 'Inter', sans-serif;
+  font-size: 12pt;
+  line-height: 1.7;
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+}
+
+h1 {
+  background: linear-gradient(135deg, #ec4899, #f97316, #eab308);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #7c2d92;
+  font-size: 42pt;
+  font-weight: 800;
+  font-style: italic;
+  margin: 0 0 1rem 0;
+  text-shadow: 2px 2px 4px rgba(236, 72, 153, 0.3);
+}
+
+h2 {
+  color: #7c3aed;
+  font-size: 18pt;
+  font-weight: 700;
+  margin: 1.5rem 0 1rem 0;
+}
+
+aside {
+  background: linear-gradient(135deg, #fdf2f8, #f3e8ff);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0 3rem;
+  display: flex;
+  box-shadow: 0 4px 6px rgba(236, 72, 153, 0.1);
+}
+
+aside address {
+  font-style: normal;
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+aside address#from {
+  color: #a855f7;
+  flex: 1;
+  font-weight: 600;
+}
+
+aside address#to {
+  text-align: right;
+  color: #7c2d92;
+  font-weight: 700;
+}
+
+dl {
+  background: linear-gradient(135deg, #ec4899, #f97316);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+  color: white;
+  box-shadow: 0 6px 12px rgba(236, 72, 153, 0.3);
+}
+
+dt, dd {
+  display: inline;
+  margin: 0;
+}
+
+dt {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+dt::before {
+  content: '';
+  display: block;
+}
+
+dt::after {
+  content: ': ';
+}
+
+dd {
+  font-weight: 700;
+  color: white;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(236, 72, 153, 0.15);
+}
+
+th {
+  background: linear-gradient(135deg, #ec4899, #a855f7);
+  color: white;
+  font-size: 11pt;
+  font-weight: 700;
+  padding: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #f3e8ff;
+  background: white;
+}
+
+td:last-of-type {
+  background: linear-gradient(135deg, #22d3ee, #3b82f6);
+  color: white;
+  font-weight: 800;
+  text-align: right;
+}
+
+th, td {
+  text-align: center;
+}
+
+th:first-of-type, td:first-of-type {
+  text-align: left;
+}
+
+th:last-of-type, td:last-of-type {
+  text-align: right;
+}
+
+tbody tr:hover {
+  background: linear-gradient(135deg, #fdf2f8, #f3e8ff);
+}
+
+footer {
+  content: '';
+  display: block;
+  height: 4cm;
+}
+
+table#total {
+  background: linear-gradient(135deg, #ec4899, #f97316, #eab308, #22d3ee);
+  border: none;
+  border-radius: 16px;
+  bottom: 0;
+  color: white;
+  font-size: 22pt;
+  font-weight: 800;
+  margin: 2rem -2.5cm 0;
+  padding: 2rem;
+  position: absolute;
+  width: calc(100% + 5cm);
+  box-shadow: 0 12px 24px rgba(236, 72, 153, 0.3);
+}
+
+/* Elementos decorativos */
+.accent-border {
+  border-left: 4px solid #ec4899;
+  padding-left: 1rem;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #fef3c7, #fed7aa);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  color: #92400e;
+  font-weight: 600;
+}
