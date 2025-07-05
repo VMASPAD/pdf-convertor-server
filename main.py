@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify, send_file
 import shutil
 from pathlib import Path
-from weasyprint import HTML
+from weasyprint import HTML, CSS
+from weasyprint.text.fonts import FontConfiguration
 from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
@@ -10,7 +11,14 @@ def savePdf(name):
     html_path = f"./pdfs/{name}/{name}.html"
     pdf_path = f"./pdfs/{name}/{name}.pdf"
     print(f"Generando PDF desde {html_path} a {pdf_path}")
-    HTML(html_path).write_pdf(pdf_path)
+    font_config = FontConfiguration() 
+    css = CSS(string='''
+        @font-face {
+            font-family: Gentium;
+            src: url(https://example.com/fonts/Gentium.otf);
+        }
+        h1 { font-family: Gentium }''', font_config=font_config)
+    HTML(html_path).write_pdf(pdf_path, stylesheets=[css], font_config=font_config)
 
 @app.route('/eliminate-pdf', methods=['POST'])
 def eliminateFolder():
@@ -47,6 +55,7 @@ def generate_pdf():
         
         name = data.get('name')
         content = data.get('content')
+        template = data.get('template')
         
         if not name or not content:
             return jsonify({"error": "Se requieren 'name' y 'content'"}), 400
