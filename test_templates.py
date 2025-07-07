@@ -11,77 +11,104 @@ BASE_URL = "http://localhost:5000"
 # HTML de prueba para las facturas
 test_html = """
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="utf-8">
-    <title>Factura de Prueba</title>
+    <title>Presupuesto Smartgate</title>
+    <meta name="description" content="Presupuesto de automatizaciones">
+    <style>
+     
+    </style>
 </head>
 <body>
-    <h1>FACTURA</h1>
-    
-    <aside>
-        <address id="from">
-            Mi Empresa S.A.
-            Calle Principal 123
-            Ciudad, CP 12345
-            Email: contacto@miempresa.com
-        </address>
-        <address id="to">
-            Cliente Ejemplo
-            Avenida Secundaria 456
-            Otra Ciudad, CP 67890
-            Email: cliente@ejemplo.com
-        </address>
-    </aside>
-    
-    <dl>
-        <dt>Fecha</dt>
-        <dd>2025-07-04</dd>
-        <dt>Factura #</dt>
-        <dd>INV-2025-001</dd>
-        <dt>Vencimiento</dt>
-        <dd>2025-08-04</dd>
-    </dl>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>Descripción</th>
-                <th>Cantidad</th>
-                <th>Precio Unit.</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Consultoría de Desarrollo</td>
-                <td>10</td>
-                <td>$150.00</td>
-                <td>$1,500.00</td>
-            </tr>
-            <tr>
-                <td>Mantenimiento de Sistema</td>
-                <td>5</td>
-                <td>$100.00</td>
-                <td>$500.00</td>
-            </tr>
-            <tr>
-                <td>Soporte Técnico</td>
-                <td>8</td>
-                <td>$75.00</td>
-                <td>$600.00</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <table id="total">
-        <tr>
-            <td>TOTAL</td>
-            <td>$2,600.00</td>
-        </tr>
-    </table>
-    
-    <footer></footer>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo">
+                    <div class="logo-icon">S</div>
+                    <div>
+                        <div class="logo-text">Smartgate</div>
+                        <div class="logo-subtitle">AUTOMATIZACIONES</div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="main-title">PRESUPUESTO</h1>
+        </div>
+        
+        <div class="client-info">
+            <div class="client-section">Facultad de Ciencias Exactas UNLP</div>
+            <div class="client-details">
+                <strong>CUIT:</strong> 30-54666670-7<br>
+                <strong>Ubicación:</strong> Buenos Aires, Argentina
+            </div>
+            <div class="date-badge">08/05/2025</div>
+        </div>
+        
+        <div class="table-container">
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Barrera BLDC uso intensivo</td>
+                        <td>1</td>
+                        <td>$1.478.139</td>
+                    </tr>
+                    <tr>
+                        <td>Teclado de acceso</td>
+                        <td>2</td>
+                        <td>$1.600.000</td>
+                    </tr>
+                    <tr>
+                        <td>Llavero</td>
+                        <td>150</td>
+                        <td>$6.150.000</td>
+                    </tr>
+                    <tr>
+                        <td>Base de fijación e instalación y programación de la barrera y llaveros correspondientes</td>
+                        <td>1</td>
+                        <td>$3.807.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="totals-section">
+            <div class="totals-grid">
+                <div class="totals-row">
+                    <div class="totals-label subtotal-label">Subtotal</div>
+                    <div class="totals-value subtotal-value">$26.338.392</div>
+                </div>
+                <div class="totals-row">
+                    <div class="totals-label tax-label">IVA (21%)</div>
+                    <div class="totals-value tax-value">$5.531.062</div>
+                </div>
+                <div class="totals-row total-row">
+                    <div class="totals-label total-label">Total</div>
+                    <div class="totals-value total-value">$31.869.454</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="payment-info">
+            <div class="payment-title">Información de Pago</div>
+            <div class="payment-card">
+                <div class="payment-details">
+                    <strong>EFECTIVO / TRANSFERENCIA</strong><br><br>
+                    <strong>Cuenta:</strong> 058-214570/7<br>
+                    <strong>CUIT/CUIL:</strong> 23317324830<br>
+                    <strong>CBU:</strong> 0720058880000214570721<br>
+                    <strong>Alias:</strong> <span class="payment-highlight">MARIO.BARRIOS</span>
+                </div>
+            </div>
+            <div class="decorative-element"></div>
+        </div>
+    </div>
 </body>
 </html>
 """
@@ -142,7 +169,7 @@ if __name__ == "__main__":
         exit(1)
     
     # Probar cada plantilla
-    for template in [1, 2, 3]:
+    for template in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
         test_template(template)
     
     print("\n🎉 Pruebas completadas!")

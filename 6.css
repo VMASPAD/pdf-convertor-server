@@ -1,228 +1,373 @@
-/* Plantilla 6: Minimalista Gris Elegante */
-@font-face {
-  font-family: 'Lato';
-  src: url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
-}
+/* Plantilla 6: Estilo Gris Elegante */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-@page {
-  margin: 2.8cm;
-  @top-right {
-    color: #94a3b8;
-    content: 'Documento Confidencial';
-    font-size: 8pt;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  @bottom-center {
-    color: #64748b;
-    content: '— Página ' counter(page) ' —';
-    font-size: 9pt;
-  }
-}
+        body {
+            font-family: 'Inter', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+            color: #1e293b;
+            line-height: 1.6;
+            font-size: 14px;
+            min-height: 100vh;
+        }
 
-html {
-  background: #ffffff;
-  color: #1e293b;
-  font-family: 'Lato', sans-serif;
-  font-size: 11pt;
-  line-height: 1.5;
-}
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+        }
 
-body {
-  margin: 0;
-  position: relative;
-}
+        /* Header moderno */
+        .header {
+            background: linear-gradient(135deg, #475569 0%, #64748b 50%, #94a3b8 100%);
+            color: white;
+            padding: 40px 30px;
+            position: relative;
+            overflow: hidden;
+        }
 
-h1 {
-  color: #475569;
-  font-size: 36pt;
-  font-weight: 300;
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  position: relative;
-}
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
 
-h1::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 60px;
-  height: 2px;
-  background: #6366f1;
-}
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
 
-.document-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 4rem;
-  padding-bottom: 2rem;
-}
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
 
-.center-logo {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, #e2e8f0, #cbd5e1);
-  border-radius: 50%;
-  opacity: 0.1;
-  z-index: -1;
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-aside {
-  display: flex;
-  margin: 3rem 0 4rem;
-  padding: 0;
-}
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(148, 163, 184, 0.4);
+        }
 
-aside address {
-  font-style: normal;
-  white-space: pre-line;
-  line-height: 1.6;
-  padding: 1.5rem;
-  background: #f8fafc;
-  border-radius: 8px;
-}
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
 
-aside address#from {
-  color: #64748b;
-  flex: 1;
-  font-weight: 400;
-  margin-right: 2rem;
-}
+        .logo-subtitle {
+            font-size: 11px;
+            opacity: 0.9;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: -2px;
+        }
 
-aside address#to {
-  text-align: right;
-  color: #1e293b;
-  font-weight: 500;
-  background: white;
-  border: 1px solid #e2e8f0;
-}
+        .main-title {
+            font-size: 52px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-dl {
-  background: #1e293b;
-  padding: 2rem;
-  position: absolute;
-  right: 0;
-  text-align: right;
-  top: 0;
-  color: white;
-  border-radius: 0 0 0 12px;
-}
+        /* Información del cliente - card style */
+        .client-info {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            margin: 0 30px;
+            padding: 25px;
+            border-radius: 16px;
+            margin-top: -20px;
+            position: relative;
+            z-index: 3;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
 
-dt, dd {
-  display: inline;
-  margin: 0;
-}
+        .client-section {
+            color: #475569;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-dt {
-  color: #94a3b8;
-  font-weight: 400;
-  font-size: 9pt;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+        .client-details {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.8;
+        }
 
-dt::before {
-  content: '';
-  display: block;
-  margin-bottom: 0.5rem;
-}
+        .date-badge {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(148, 163, 184, 0.3);
+        }
 
-dt::after {
-  content: ': ';
-}
+        /* Tabla moderna */
+        .table-container {
+            padding: 30px;
+            background: white;
+        }
 
-dd {
-  font-weight: 700;
-  color: white;
-  font-size: 13pt;
-}
+        .content-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
 
-table {
-  border-collapse: collapse;
-  width: 100%;
-  background: white;
-  border: 1px solid #f1f5f9;
-  margin: 2rem 0;
-}
+        .content-table th {
+            background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+            color: white;
+            padding: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
 
-th {
-  background: #f8fafc;
-  color: #475569;
-  font-size: 9pt;
-  font-weight: 700;
-  padding: 1.2rem 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-bottom: 2px solid #e2e8f0;
-}
+        .content-table th:first-child {
+            border-radius: 12px 0 0 0;
+        }
 
-td {
-  padding: 1rem;
-  border-bottom: 1px solid #f8fafc;
-  color: #334155;
-  font-weight: 400;
-}
+        .content-table th:last-child {
+            border-radius: 0 12px 0 0;
+            text-align: right;
+        }
 
-td:last-of-type {
-  color: #6366f1;
-  font-weight: 700;
-  text-align: right;
-  background: #fafafa;
-}
+        .content-table th:nth-child(2) {
+            text-align: center;
+        }
 
-th, td {
-  text-align: left;
-}
+        .content-table td {
+            padding: 20px 18px;
+            border-bottom: 1px solid #e2e8f0;
+            background: white;
+            transition: all 0.2s ease;
+        }
 
-th:last-of-type, td:last-of-type {
-  text-align: right;
-}
+        .content-table tbody tr:hover td {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
 
-tbody tr:hover {
-  background: #fafafa;
-}
+        .content-table td:nth-child(2) {
+            text-align: center;
+            font-weight: 600;
+            color: #475569;
+        }
 
-footer {
-  content: '';
-  display: block;
-  height: 5cm;
-}
+        .content-table td:last-child {
+            text-align: right;
+            font-weight: 700;
+            color: #64748b;
+            font-size: 16px;
+        }
 
-table#total {
-  background: linear-gradient(135deg, #1e293b, #475569);
-  border: none;
-  bottom: 0;
-  color: white;
-  font-size: 18pt;
-  font-weight: 700;
-  margin: 2rem -2.8cm 0;
-  padding: 2.5rem;
-  position: absolute;
-  width: calc(100% + 5.6cm);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+        .content-table tbody tr:last-child td:first-child {
+            border-radius: 0 0 0 12px;
+        }
 
-.subtle-pattern {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 200px;
-  height: 100%;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    #f8fafc 10px,
-    #f8fafc 20px
-  );
-  opacity: 0.3;
-  z-index: -2;
-}
+        .content-table tbody tr:last-child td:last-child {
+            border-radius: 0 0 12px 0;
+        }
+
+        /* Sección de totales moderna */
+        .totals-section {
+            background: linear-gradient(135deg, #475569 0%, #334155 100%);
+            padding: 30px;
+            margin: 0;
+            color: white;
+        }
+
+        .totals-grid {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .totals-row {
+            display: contents;
+        }
+
+        .totals-label {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .totals-value {
+            text-align: right;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .subtotal-label {
+            opacity: 0.8;
+        }
+
+        .subtotal-value {
+            opacity: 0.8;
+        }
+
+        .tax-label {
+            opacity: 0.7;
+            font-size: 12px;
+        }
+
+        .tax-value {
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        .total-row {
+            border-top: 2px solid rgba(255,255,255,0.2);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .total-label {
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .total-value {
+            font-size: 24px;
+            font-weight: 800;
+            color: #94a3b8;
+        }
+
+        /* Información de pago estilo card */
+        .payment-info {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 30px;
+            margin: 0;
+            position: relative;
+        }
+
+        .payment-title {
+            color: #475569;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .payment-title::before {
+            content: '💳';
+            font-size: 20px;
+        }
+
+        .payment-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #64748b;
+        }
+
+        .payment-details {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .payment-details strong {
+            color: #475569;
+            font-weight: 700;
+        }
+
+        .payment-highlight {
+            background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        /* Elementos decorativos */
+        .decorative-element {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        /* Ajustes para WeasyPrint */
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .header::before,
+            .header::after {
+                display: none;
+            }
+        }
