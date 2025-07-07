@@ -1,0 +1,197 @@
+/* Plantilla 4: Minimalista Azul Corporativo */
+@font-face {
+  font-family: 'Inter';
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+}
+
+@page {
+  margin: 2.5cm;
+  @bottom-center {
+    color: #64748b;
+    content: 'Página ' counter(page);
+    font-size: 9pt;
+    font-weight: 300;
+  }
+  @bottom-right {
+    color: #475569;
+    content: 'contacto@empresa.com';
+    font-size: 9pt;
+  }
+}
+
+html {
+  background: #fafafa;
+  color: #334155;
+  font-family: 'Inter', sans-serif;
+  font-size: 11pt;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #1e40af;
+  font-size: 28pt;
+  font-weight: 300;
+  margin: 0 0 2rem 0;
+  letter-spacing: -0.5px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 1rem;
+}
+
+.company-logo {
+  width: 80px;
+  height: 80px;
+  background: #1e40af;
+  border-radius: 8px;
+  display: inline-block;
+  float: right;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+aside {
+  display: flex;
+  margin: 3rem 0 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+aside address {
+  font-style: normal;
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+aside address#from {
+  color: #64748b;
+  flex: 1;
+  font-weight: 400;
+}
+
+aside address#to {
+  text-align: right;
+  color: #334155;
+  font-weight: 500;
+}
+
+dl {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid #1e40af;
+  padding: 1.5rem;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+dt, dd {
+  display: inline;
+  margin: 0;
+}
+
+dt {
+  color: #64748b;
+  font-weight: 500;
+  font-size: 10pt;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+dt::before {
+  content: '';
+  display: block;
+}
+
+dt::after {
+  content: ': ';
+}
+
+dd {
+  font-weight: 600;
+  color: #1e40af;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+th {
+  background: #f8fafc;
+  color: #475569;
+  font-size: 10pt;
+  font-weight: 600;
+  padding: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+
+td:last-of-type {
+  color: #1e40af;
+  font-weight: 600;
+  text-align: right;
+}
+
+th, td {
+  text-align: left;
+}
+
+th:last-of-type, td:last-of-type {
+  text-align: right;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+footer {
+  content: '';
+  display: block;
+  height: 4cm;
+}
+
+table#total {
+  background: #1e40af;
+  border: none;
+  border-radius: 8px;
+  bottom: 0;
+  color: white;
+  font-size: 18pt;
+  font-weight: 600;
+  margin: 2rem -2.5cm 0;
+  padding: 2rem;
+  position: absolute;
+  width: calc(100% + 5cm);
+}
+
+.watermark-image {
+  position: absolute;
+  top: 50%;
+  right: 2cm;
+  transform: translateY(-50%);
+  opacity: 0.05;
+  width: 200px;
+  height: 200px;
+  background: #1e40af;
+  border-radius: 50%;
+  z-index: -1;
+}

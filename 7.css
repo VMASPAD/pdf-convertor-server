@@ -1,0 +1,213 @@
+/* Plantilla 7: Minimalista Púrpura Moderno */
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap');
+}
+
+@page {
+  margin: 2.5cm;
+  @bottom-left {
+    color: #7c3aed;
+    content: '✦ Factura Profesional';
+    font-size: 9pt;
+    font-weight: 600;
+  }
+  @bottom-right {
+    color: #64748b;
+    content: 'info@empresa.com | empresa.com';
+    font-size: 9pt;
+  }
+}
+
+html {
+  background: linear-gradient(135deg, #fefbff 0%, #f8fafc 100%);
+  color: #1e293b;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 11pt;
+  line-height: 1.6;
+}
+
+body {
+  margin: 0;
+  position: relative;
+}
+
+h1 {
+  color: #6d28d9;
+  font-size: 30pt;
+  font-weight: 300;
+  margin: 0 0 2rem 0;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+}
+
+.title-accent {
+  width: 4px;
+  height: 60px;
+  background: linear-gradient(to bottom, #7c3aed, #a855f7);
+  margin-right: 1rem;
+  border-radius: 2px;
+}
+
+.floating-image {
+  position: absolute;
+  top: 2cm;
+  right: 3cm;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+  border-radius: 16px;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 4px 8px rgba(124, 58, 237, 0.1);
+}
+
+aside {
+  display: flex;
+  margin: 3rem 0 4rem;
+  gap: 2rem;
+}
+
+aside address {
+  font-style: normal;
+  white-space: pre-line;
+  line-height: 1.7;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+aside address#from {
+  color: #64748b;
+  flex: 1;
+  font-weight: 400;
+  background: white;
+  border: 1px solid #f1f5f9;
+}
+
+aside address#to {
+  text-align: right;
+  color: #1e293b;
+  font-weight: 600;
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+}
+
+dl {
+  background: white;
+  border: 1px solid #e9d5ff;
+  border-left: 4px solid #7c3aed;
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+  box-shadow: 0 2px 4px rgba(124, 58, 237, 0.1);
+}
+
+dt, dd {
+  display: inline;
+  margin: 0;
+}
+
+dt {
+  color: #64748b;
+  font-weight: 600;
+  font-size: 10pt;
+  text-transform: capitalize;
+}
+
+dt::before {
+  content: '';
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+dt::after {
+  content: ': ';
+}
+
+dd {
+  font-weight: 700;
+  color: #6d28d9;
+  font-size: 12pt;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: white;
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+}
+
+th {
+  background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+  color: #581c87;
+  font-size: 10pt;
+  font-weight: 700;
+  padding: 1rem;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #fafafa;
+  color: #374151;
+  font-weight: 400;
+}
+
+td:last-of-type {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+  color: #6d28d9;
+  font-weight: 700;
+  text-align: right;
+}
+
+th, td {
+  text-align: left;
+}
+
+th:last-of-type, td:last-of-type {
+  text-align: right;
+}
+
+tbody tr:hover {
+  background: #fafbfc;
+}
+
+footer {
+  content: '';
+  display: block;
+  height: 4cm;
+}
+
+table#total {
+  background: linear-gradient(135deg, #6d28d9, #8b5cf6, #a855f7);
+  border: none;
+  border-radius: 12px;
+  bottom: 0;
+  color: white;
+  font-size: 19pt;
+  font-weight: 700;
+  margin: 2rem -2.5cm 0;
+  padding: 2rem;
+  position: absolute;
+  width: calc(100% + 5cm);
+  box-shadow: 0 8px 16px rgba(109, 40, 217, 0.3);
+}
+
+.corner-decoration {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 100px solid #faf5ff;
+  border-top: 100px solid transparent;
+  z-index: -1;
+}

@@ -1,0 +1,232 @@
+/* Plantilla 8: Minimalista Naranja Suave */
+@font-face {
+  font-family: 'Work Sans';
+  src: url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap');
+}
+
+@page {
+  margin: 3cm 2.5cm;
+  @top-left {
+    color: #ea580c;
+    content: 'INVOICE';
+    font-size: 12pt;
+    font-weight: 600;
+    letter-spacing: 3px;
+  }
+  @bottom-center {
+    color: #78716c;
+    content: 'Página ' counter(page);
+    font-size: 9pt;
+  }
+  @bottom-right {
+    color: #a8a29e;
+    content: 'empresa@dominio.com';
+    font-size: 9pt;
+  }
+}
+
+html {
+  background: #fffbf5;
+  color: #44403c;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 11pt;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  position: relative;
+}
+
+h1 {
+  color: #c2410c;
+  font-size: 34pt;
+  font-weight: 300;
+  margin: 0 0 1rem 0;
+  letter-spacing: -1px;
+  position: relative;
+  padding-left: 100px;
+}
+
+.side-image {
+  position: absolute;
+  left: 0;
+  top: -10px;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(45deg, #fed7aa, #fdba74);
+  border-radius: 20px;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 12px rgba(194, 65, 12, 0.2);
+}
+
+.invoice-details {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0 3rem;
+  border-left: 5px solid #f97316;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+aside {
+  display: flex;
+  margin: 0;
+  gap: 3rem;
+}
+
+aside address {
+  font-style: normal;
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+aside address#from {
+  color: #78716c;
+  flex: 1;
+  font-weight: 400;
+}
+
+aside address#to {
+  text-align: right;
+  color: #44403c;
+  font-weight: 500;
+}
+
+dl {
+  background: linear-gradient(135deg, #ea580c, #f97316);
+  border-radius: 16px;
+  padding: 2rem;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+  color: white;
+  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.3);
+}
+
+dt, dd {
+  display: inline;
+  margin: 0;
+}
+
+dt {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 10pt;
+  text-transform: capitalize;
+}
+
+dt::before {
+  content: '';
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+dt::after {
+  content: ': ';
+}
+
+dd {
+  font-weight: 600;
+  color: white;
+  font-size: 13pt;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin: 2rem 0;
+}
+
+th {
+  background: #fef3e2;
+  color: #9a3412;
+  font-size: 10pt;
+  font-weight: 600;
+  padding: 1.2rem 1rem;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #fef7ed;
+  color: #57534e;
+  font-weight: 400;
+}
+
+td:last-of-type {
+  background: linear-gradient(135deg, #fed7aa, #fef3e2);
+  color: #c2410c;
+  font-weight: 600;
+  text-align: right;
+}
+
+th, td {
+  text-align: left;
+}
+
+th:last-of-type, td:last-of-type {
+  text-align: right;
+}
+
+tbody tr:nth-child(even) {
+  background: #fefbf5;
+}
+
+tbody tr:hover {
+  background: #fef7ed;
+}
+
+footer {
+  content: '';
+  display: block;
+  height: 4cm;
+}
+
+table#total {
+  background: linear-gradient(135deg, #ea580c, #f97316, #fb923c);
+  border: none;
+  border-radius: 16px;
+  bottom: 0;
+  color: white;
+  font-size: 20pt;
+  font-weight: 600;
+  margin: 2rem -2.5cm 0;
+  padding: 2.5rem;
+  position: absolute;
+  width: calc(100% + 5cm);
+  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.3);
+}
+
+.background-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 25% 25%, #fed7aa 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.accent-dot {
+  position: absolute;
+  top: 50%;
+  right: 1cm;
+  width: 12px;
+  height: 12px;
+  background: #f97316;
+  border-radius: 50%;
+  box-shadow: 
+    20px 0 0 #fb923c,
+    40px 0 0 #fed7aa,
+    0 20px 0 #fed7aa,
+    20px 20px 0 #fef3e2;
+}
