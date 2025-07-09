@@ -14,7 +14,6 @@ test_html = """
 <html lang="es">
 <head>
     <meta charset="utf-8">
-    <title>Presupuesto Smartgate</title>
     <meta name="description" content="Presupuesto de automatizaciones">
     <style>
      
@@ -25,10 +24,9 @@ test_html = """
         <div class="header">
             <div class="logo-container">
                 <div class="logo">
-                    <div class="logo-icon">S</div>
                     <div>
-                        <div class="logo-text">Smartgate</div>
-                        <div class="logo-subtitle">AUTOMATIZACIONES</div>
+                        <img class="logo-text" src="logo.png" alt="Logo">
+                        <div class="logo-subtitle"></div>
                     </div>
                 </div>
             </div>

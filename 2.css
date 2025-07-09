@@ -285,7 +285,7 @@
         .total-value {
             font-size: 24px;
             font-weight: 800;
-            color: #f472b6;
+            color: #ffffff;
         }
 
         /* Información de pago estilo card */
@@ -352,10 +352,7 @@
         }
 
         /* Ajustes para WeasyPrint */
-        @page {
-            size: A4;
-            margin: 15mm;
-        }
+        
 
         @media print {
             body {
