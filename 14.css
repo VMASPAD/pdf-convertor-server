@@ -1,0 +1,385 @@
+/* OCEAN BLUE MINIMAL INVOICE DESIGN */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f0f9ff;
+    color: #0c4a6e;
+    line-height: 1.6;
+    font-size: 14px;
+    min-height: 100vh;
+}
+
+.container {
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #bae6fd;
+}
+
+/* Header */
+.header {
+    background: #0ea5e9;
+    color: white;
+    padding: 40px 30px;
+    position: relative;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    background: #0284c7;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+}
+
+.logo-text {
+    font-family: 'Crimson Text', serif;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+}
+
+.logo-subtitle {
+    font-size: 11px;
+    opacity: 0.8;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: -2px;
+}
+
+.main-title {
+    font-family: 'Crimson Text', serif;
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+/* Client info */
+.client-info {
+    background: #f0f9ff;
+    margin: 0 30px;
+    padding: 25px;
+    border-radius: 6px;
+    margin-top: -15px;
+    position: relative;
+    z-index: 2;
+    border: 1px solid #bae6fd;
+}
+
+.client-section {
+    color: #0369a1;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.client-details {
+    color: #0ea5e9;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.date-badge {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: #0c4a6e;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Table */
+.table-container {
+    padding: 30px;
+    background: white;
+}
+
+.content-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #bae6fd;
+}
+
+.content-table th {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 16px 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #bae6fd;
+}
+
+.content-table th:first-child {
+    border-radius: 6px 0 0 0;
+}
+
+.content-table th:last-child {
+    border-radius: 0 6px 0 0;
+    text-align: right;
+}
+
+.content-table th:nth-child(2) {
+    text-align: center;
+}
+
+.content-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #e0f2fe;
+    background: white;
+    transition: background-color 0.2s ease;
+}
+
+.content-table tbody tr:hover td {
+    background: #f0f9ff;
+}
+
+.content-table td:nth-child(2) {
+    text-align: center;
+    font-weight: 500;
+    color: #0ea5e9;
+}
+
+.content-table td:last-child {
+    text-align: right;
+    font-weight: 600;
+    color: #0c4a6e;
+    font-size: 15px;
+}
+
+.content-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.content-table tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 6px;
+}
+
+.content-table tbody tr:last-child td:last-child {
+    border-radius: 0 0 6px 0;
+}
+
+/* Totals section */
+.totals-section {
+    background: #e0f2fe;
+    padding: 30px 40px;
+    margin: 0;
+    color: #0c4a6e;
+    border-top: 1px solid #bae6fd;
+}
+
+.totals-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+}
+
+.totals-row {
+    display: contents;
+}
+
+.totals-label {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 13px;
+    color: #0ea5e9;
+}
+
+.totals-value {
+    text-align: right;
+    font-weight: 600;
+    font-size: 15px;
+    color: #0c4a6e;
+}
+
+.subtotal-label,
+.tax-label {
+    opacity: 0.8;
+}
+
+.subtotal-value,
+.tax-value {
+    opacity: 0.8;
+}
+
+.tax-label {
+    font-size: 12px;
+}
+
+.tax-value {
+    font-size: 14px;
+}
+
+.total-row {
+    border-top: 1px solid #7dd3fc;
+    padding-top: 12px;
+    margin-top: 12px;
+}
+
+.total-label {
+    font-family: 'Crimson Text', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0c4a6e;
+}
+
+.total-value {
+    font-family: 'Crimson Text', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0c4a6e;
+}
+
+/* Payment info */
+.payment-info {
+    background: white;
+    padding: 30px;
+    margin: 0;
+    border-top: 1px solid #bae6fd;
+}
+
+.payment-title {
+    color: #0369a1;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.payment-title::before {
+    content: '•';
+    font-size: 16px;
+    color: #0ea5e9;
+}
+
+.payment-card {
+    background: #f0f9ff;
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 3px solid #0ea5e9;
+    border: 1px solid #bae6fd;
+}
+
+.payment-details {
+    color: #0ea5e9;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.payment-details strong {
+    color: #0c4a6e;
+    font-weight: 600;
+}
+
+.payment-highlight {
+    background: #0c4a6e;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+/* Print adjustments */
+@media print {
+    body {
+        background: white;
+    }
+    
+    .container {
+        box-shadow: none;
+        border-radius: 0;
+        border: 1px solid #ccc;
+        margin: 0;
+    }
+    
+    .header {
+        background: #0284c7 !important;
+        color: white !important;
+    }
+    
+    .totals-section {
+        background: #f0f9ff !important;
+    }
+    
+    .payment-info {
+        background: white !important;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        border-radius: 6px;
+    }
+    
+    .header {
+        padding: 30px 20px;
+    }
+    
+    .client-info {
+        margin: 0 20px;
+    }
+    
+    .table-container {
+        padding: 20px;
+    }
+    
+    .totals-section {
+        padding: 20px 30px;
+    }
+    
+    .payment-info {
+        padding: 20px;
+    }
+    
+    .main-title {
+        font-size: 28px;
+    }
+    
+    .logo-text {
+        font-size: 20px;
+    }
+}

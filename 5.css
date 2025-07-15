@@ -1,370 +1,479 @@
-/* Plantilla 5: Estilo Cian Minimalista */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Chiller&family=Nosifer&display=swap');
 
-        body {
-            font-family: 'Inter', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
-            color: #1e293b;
-            line-height: 1.6;
-            font-size: 14px;
-            min-height: 100vh;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            border-radius: 24px;
-            overflow: hidden;
-            position: relative;
-        }
+body {
+    font-family: 'Nosifer', cursive;
+    background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #2c1810 100%);
+    color: #e63946;
+    line-height: 1.6;
+    font-size: 14px;
+    min-height: 100vh;
+    position: relative;
+}
 
-        /* Header moderno */
-        .header {
-            background: linear-gradient(135deg, #0e7490 0%, #0891b2 50%, #06b6d4 100%);
-            color: white;
-            padding: 40px 30px;
-            position: relative;
-            overflow: hidden;
-        }
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 30% 30%, rgba(230, 57, 70, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(139, 0, 0, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+    animation: flicker 3s ease-in-out infinite;
+}
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -30%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-        }
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
 
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: -100px;
-            left: -100px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
-            border-radius: 50%;
-        }
+.container {
+    margin: 0 auto;
+    background: rgba(13, 27, 42, 0.95);
+    backdrop-filter: blur(5px);
+    border: 2px solid #8b0000;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(139, 0, 0, 0.4);
+}
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 2;
-        }
+/* Header gótico */
+.header {
+    background: linear-gradient(135deg, #8b0000 0%, #2c1810 100%);
+    color: #e63946;
+    padding: 45px 35px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 3px solid #e63946;
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+.header::before {
+    content: '🦇';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    opacity: 0.4;
+    animation: bat-fly 4s ease-in-out infinite;
+}
 
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 20px;
-            color: white;
-            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
-        }
+@keyframes bat-fly {
+    0%, 100% { transform: translateX(0px) rotate(0deg); }
+    25% { transform: translateX(10px) rotate(5deg); }
+    50% { transform: translateX(20px) rotate(-5deg); }
+    75% { transform: translateX(10px) rotate(5deg); }
+}
 
-        .logo-text {
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #8b0000 0%, #e63946 50%, #8b0000 100%);
+    animation: blood-drip 2s ease-in-out infinite;
+}
 
-        .logo-subtitle {
-            font-size: 11px;
-            opacity: 0.9;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-top: -2px;
-        }
+@keyframes blood-drip {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.5); }
+}
 
-        .main-title {
-            font-size: 52px;
-            font-weight: 800;
-            letter-spacing: -2px;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    position: relative;
+    z-index: 2;
+}
 
-        /* Información del cliente - card style */
-        .client-info {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f7fa 100%);
-            margin: 0 30px;
-            padding: 25px;
-            border-radius: 16px;
-            margin-top: -20px;
-            position: relative;
-            z-index: 3;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
-        .client-section {
-            color: #0e7490;
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #e63946 0%, #8b0000 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 20px;
+    color: #0d1b2a;
+    box-shadow: 0 6px 25px rgba(230, 57, 70, 0.5);
+    border: 3px solid #2c1810;
+    font-family: 'Creepster', cursive;
+}
 
-        .client-details {
-            color: #64748b;
-            font-size: 14px;
-            line-height: 1.8;
-        }
+.logo-text {
+    font-family: 'Creepster', cursive;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #e63946;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+}
 
-        .date-badge {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
-        }
+.logo-subtitle {
+    font-size: 10px;
+    opacity: 0.8;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 1px;
+    color: #8b0000;
+    font-family: 'Chiller', cursive;
+}
 
-        /* Tabla moderna */
-        .table-container {
-            padding: 30px;
-            background: white;
-        }
+.main-title {
+    font-family: 'Creepster', cursive;
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    color: #e63946;
+    text-shadow: 4px 4px 8px rgba(0,0,0,0.8);
+    transform: rotate(-1deg);
+}
 
-        .content-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
+/* Información del cliente - estilo oscuro */
+.client-info {
+    background: linear-gradient(135deg, #1b263b 0%, #0d1b2a 100%);
+    margin: 0 35px;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: -20px;
+    position: relative;
+    z-index: 3;
+    border: 2px solid #8b0000;
+    box-shadow: inset 0 0 20px rgba(139, 0, 0, 0.3);
+}
 
-        .content-table th {
-            background: linear-gradient(135deg, #0e7490 0%, #0891b2 100%);
-            color: white;
-            padding: 18px;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 1px;
-        }
+.client-section {
+    color: #e63946;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Chiller', cursive;
+}
 
-        .content-table th:first-child {
-            border-radius: 12px 0 0 0;
-        }
+.client-details {
+    color: #8b949e;
+    font-size: 14px;
+    line-height: 1.8;
+    font-weight: 400;
+    font-family: 'Nosifer', cursive;
+}
 
-        .content-table th:last-child {
-            border-radius: 0 12px 0 0;
-            text-align: right;
-        }
+.date-badge {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #8b0000 0%, #e63946 100%);
+    color: #0d1b2a;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 400;
+    box-shadow: 0 4px 20px rgba(139, 0, 0, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Chiller', cursive;
+    border: 2px solid #2c1810;
+}
 
-        .content-table th:nth-child(2) {
-            text-align: center;
-        }
+/* Tabla gótica */
+.table-container {
+    padding: 35px;
+    background: #0d1b2a;
+}
 
-        .content-table td {
-            padding: 20px 18px;
-            border-bottom: 1px solid #e2e8f0;
-            background: white;
-            transition: all 0.2s ease;
-        }
+.content-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(139, 0, 0, 0.4);
+    border: 2px solid #8b0000;
+}
 
-        .content-table tbody tr:hover td {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f7fa 100%);
-        }
+.content-table th {
+    background: linear-gradient(135deg, #8b0000 0%, #2c1810 100%);
+    color: #e63946;
+    padding: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-family: 'Chiller', cursive;
+    border-bottom: 2px solid #e63946;
+}
 
-        .content-table td:nth-child(2) {
-            text-align: center;
-            font-weight: 600;
-            color: #0e7490;
-        }
+.content-table th:first-child {
+    border-radius: 10px 0 0 0;
+}
 
-        .content-table td:last-child {
-            text-align: right;
-            font-weight: 700;
-            color: #0891b2;
-            font-size: 16px;
-        }
+.content-table th:last-child {
+    border-radius: 0 10px 0 0;
+    text-align: right;
+}
 
-        .content-table tbody tr:last-child td:first-child {
-            border-radius: 0 0 0 12px;
-        }
+.content-table th:nth-child(2) {
+    text-align: center;
+}
 
-        .content-table tbody tr:last-child td:last-child {
-            border-radius: 0 0 12px 0;
-        }
+.content-table td {
+    padding: 18px 20px;
+    border-bottom: 1px solid #2c1810;
+    background: #1b263b;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-family: 'Nosifer', cursive;
+}
 
-        /* Sección de totales moderna */
-        .totals-section {
-            background: linear-gradient(135deg, #0e7490 0%, #155e75 100%);
-            padding: 30px;
-            margin: 0;
-            color: white;
-        }
+.content-table tbody tr:hover td {
+    background: linear-gradient(135deg, #2c1810 0%, #1b263b 100%);
+    box-shadow: inset 0 0 15px rgba(230, 57, 70, 0.2);
+}
 
-        .totals-grid {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 15px;
-            align-items: center;
-        }
+.content-table td:nth-child(2) {
+    text-align: center;
+    font-weight: 400;
+    color: #e63946;
+}
 
-        .totals-row {
-            display: contents;
-        }
+.content-table td:last-child {
+    text-align: right;
+    font-weight: 400;
+    color: #8b949e;
+    font-size: 15px;
+}
 
-        .totals-label {
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 14px;
-        }
+.content-table tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 10px;
+}
 
-        .totals-value {
-            text-align: right;
-            font-weight: 700;
-            font-size: 16px;
-        }
+.content-table tbody tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
+}
 
-        .subtotal-label {
-            opacity: 0.8;
-        }
+/* Sección de totales gótica */
+.totals-section {
+    background: linear-gradient(135deg, #8b0000 0%, #2c1810 100%);
+    padding: 30px 35px;
+    margin: 0;
+    color: #e63946;
+    position: relative;
+    border-top: 3px solid #e63946;
+}
 
-        .subtotal-value {
-            opacity: 0.8;
-        }
+.totals-section::before {
+    content: '💀';
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 25px;
+    opacity: 0.4;
+}
 
-        .tax-label {
-            opacity: 0.7;
-            font-size: 12px;
-        }
+.totals-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 15px;
+    align-items: center;
+}
 
-        .tax-value {
-            opacity: 0.7;
-            font-size: 14px;
-        }
+.totals-row {
+    display: contents;
+}
 
-        .total-row {
-            border-top: 2px solid rgba(255,255,255,0.2);
-            padding-top: 15px;
-            margin-top: 15px;
-        }
+.totals-label {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-family: 'Chiller', cursive;
+}
 
-        .total-label {
-            font-size: 18px;
-            font-weight: 800;
-        }
+.totals-value {
+    text-align: right;
+    font-weight: 400;
+    font-size: 15px;
+    font-family: 'Nosifer', cursive;
+}
 
-        .total-value {
-            font-size: 24px;
-            font-weight: 800;
-            color: #ffffff;
-        }
+.subtotal-label {
+    opacity: 0.9;
+}
 
-        /* Información de pago estilo card */
-        .payment-info {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f7fa 100%);
-            padding: 30px;
-            margin: 0;
-            position: relative;
-        }
+.subtotal-value {
+    opacity: 0.9;
+}
 
-        .payment-title {
-            color: #0e7490;
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+.tax-label {
+    opacity: 0.8;
+    font-size: 11px;
+}
 
-        .payment-title::before {
-            content: '💳';
-            font-size: 20px;
-        }
+.tax-value {
+    opacity: 0.8;
+    font-size: 13px;
+}
 
-        .payment-card {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-left: 4px solid #0891b2;
-        }
+.total-row {
+    border-top: 2px solid rgba(230, 57, 70, 0.4);
+    padding-top: 15px;
+    margin-top: 15px;
+}
 
-        .payment-details {
-            color: #475569;
-            font-size: 14px;
-            line-height: 1.8;
-        }
+.total-label {
+    font-size: 16px;
+    font-weight: 400;
+    color: #8b0000;
+    font-family: 'Creepster', cursive;
+}
 
-        .payment-details strong {
-            color: #0e7490;
-            font-weight: 700;
-        }
+.total-value {
+    font-size: 20px;
+    font-weight: 400;
+    color: #e63946;
+    font-family: 'Creepster', cursive;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
 
-        .payment-highlight {
-            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 13px;
-        }
+/* Información de pago gótica */
+.payment-info {
+    background: linear-gradient(135deg, #1b263b 0%, #0d1b2a 100%);
+    padding: 35px;
+    margin: 0;
+    position: relative;
+    border-top: 2px solid #8b0000;
+}
 
-        /* Elementos decorativos */
-        .decorative-element {
-            position: absolute;
-            bottom: 20px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
-            border-radius: 50%;
-            opacity: 0.1;
-        }
+.payment-title {
+    color: #e63946;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Chiller', cursive;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 
-        /* Ajustes para WeasyPrint */
-        
+.payment-title::before {
+    content: '🗡️';
+    font-size: 18px;
+}
 
-        @media print {
-            body {
-                background: white;
-            }
-            
-            .container {
-                box-shadow: none;
-                border-radius: 0;
-            }
-            
-            .header::before,
-            .header::after {
-                display: none;
-            }
-        }
+.payment-card {
+    background: #2c1810;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 20px rgba(139, 0, 0, 0.3);
+    border-left: 4px solid #8b0000;
+    border: 2px solid #e63946;
+}
+
+.payment-details {
+    color: #8b949e;
+    font-size: 14px;
+    line-height: 1.8;
+    font-weight: 400;
+    font-family: 'Nosifer', cursive;
+}
+
+.payment-details strong {
+    color: #e63946;
+    font-weight: 400;
+    font-family: 'Chiller', cursive;
+}
+
+.payment-highlight {
+    background: linear-gradient(135deg, #8b0000 0%, #e63946 100%);
+    color: #0d1b2a;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Chiller', cursive;
+}
+
+/* Elemento decorativo */
+.decorative-element {
+    position: absolute;
+    bottom: 35px;
+    right: 35px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #8b0000 0%, #e63946 100%);
+    border-radius: 50%;
+    opacity: 0.2;
+    border: 3px solid #2c1810;
+}
+
+.decorative-element::before {
+    content: '🕷️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+/* Ajustes para impresión */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    body::before {
+        display: none;
+    }
+    
+    .container {
+        box-shadow: none;
+        border-radius: 0;
+        border: 1px solid black;
+        backdrop-filter: none;
+    }
+    
+    .header::before,
+    .header::after {
+        display: none;
+    }
+    
+    .totals-section::before {
+        display: none;
+    }
+    
+    .decorative-element::before {
+        display: none;
+    }
+}

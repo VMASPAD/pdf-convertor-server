@@ -67,7 +67,7 @@ def generate_pdf():
         template = data.get('template', 1)  # Valor por defecto: plantilla 1
         
         # Validar que template sea un número válido (1, 2, o 3)
-        if template not in [1, 2, 3,4,5,6,7,8,9]:
+        if template not in [1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15]:
             template = 1
         
         if not name or not content:
