@@ -11,7 +11,7 @@ def savePdf(name, template):
     html_path = Path(f"./pdfs/{name}/{name}.html")
     pdf_path = Path(f"./pdfs/{name}/{name}.pdf")
     css_path = Path(f"./{template}.css")  # CSS en la misma carpeta que app.py
-
+    print(css_path)
     font_config = FontConfiguration()
 
     css = []
