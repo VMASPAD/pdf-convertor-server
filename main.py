@@ -63,7 +63,6 @@ def generate_pdf():
         name = data.get('name')
         content = data.get('content')
         template = str(data.get('template'))  # Valor por defecto: plantilla 1
-        print(data)
         if not name or not content:
             return jsonify({"error": "Se requieren 'name' y 'content'"}), 400
         print(template)
