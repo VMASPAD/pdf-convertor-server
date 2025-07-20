@@ -7,7 +7,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-def savePdf(name, template=1):
+def savePdf(name, template):
     html_path = f"./pdfs/{name}/{name}.html"
     pdf_path = f"./pdfs/{name}/{name}.pdf"
     print(f"Generando PDF desde {html_path} a {pdf_path} con plantilla {template}")
@@ -65,10 +65,6 @@ def generate_pdf():
         name = data.get('name')
         content = data.get('content')
         template = data.get('template')  # Valor por defecto: plantilla 1
-        
-        # Validar que template sea un número válido (1, 2, o 3)
-        if template not in [1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15]:
-            template = 1
         
         if not name or not content:
             return jsonify({"error": "Se requieren 'name' y 'content'"}), 400
