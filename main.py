@@ -16,12 +16,13 @@ def savePdf(name, template):
 
     font_config = FontConfiguration()
 
-    css = [CSS(url=css_url, font_config=font_config)]
+    css = CSS(url=css_url, font_config=font_config)
 
     HTML(filename=str(html_path), base_url=str(html_path.parent)).write_pdf(
         str(pdf_path),
         stylesheets=css,
-        font_config=font_config
+        font_config=font_config,
+        download_name=f"{name}.pdf"
     )
 
 
