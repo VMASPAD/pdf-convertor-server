@@ -11,9 +11,9 @@ def savePdf(name, template):
     html_path = f"./pdfs/{name}/{name}.html"
     pdf_path = f"./pdfs/{name}/{name}.pdf"
     print(f"Generando PDF desde {html_path} a {pdf_path} con plantilla {template}")
-    
+    print(f"savePdf: {template}")
     # Seleccionar el archivo CSS según la plantilla
-    css_file = f"{template}.css"
+    css_file = f"./{template}.css"
     css_path = Path(css_file)
     
     font_config = FontConfiguration()
