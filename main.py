@@ -8,10 +8,12 @@ app = Flask(__name__)
 CORS(app)
 
 def savePdf(name, template):
-    html_path = Path(f"./pdfs/{name}/{name}.html")
-    pdf_path = Path(f"./pdfs/{name}/{name}.pdf")
-    css_path = Path(f"./{template}.css")  # CSS en la misma carpeta que app.py
-    print(css_path)
+    html_path = Path(f"./pdfs/{name}/{name}.html").resolve()
+    pdf_path = Path(f"./pdfs/{name}/{name}.pdf").resolve()
+    css_path = Path(f"./{template}.css").resolve()  # Absoluto
+
+    print(f"CSS Path: {css_path}")
+
     font_config = FontConfiguration()
 
     css = []
@@ -20,10 +22,12 @@ def savePdf(name, template):
     else:
         print(f"Archivo CSS {css_path} no encontrado")
 
-    # base_url permite cargar imágenes y referencias relativas
     HTML(filename=str(html_path), base_url=str(html_path.parent)).write_pdf(
-        pdf_path, stylesheets=css, font_config=font_config
+        str(pdf_path),
+        stylesheets=css,
+        font_config=font_config
     )
+
 
 
 @app.route('/eliminate-pdf', methods=['POST'])
@@ -62,7 +66,7 @@ def generate_pdf():
         
         name = data.get('name')
         content = data.get('content')
-        template = str(data.get('template'))  # Valor por defecto: plantilla 1
+        template = data.get('template')  # Valor por defecto: plantilla 1
         if not name or not content:
             return jsonify({"error": "Se requieren 'name' y 'content'"}), 400
         print(template)
