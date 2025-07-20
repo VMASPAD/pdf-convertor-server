@@ -10,23 +10,20 @@ CORS(app)
 def savePdf(name, template):
     html_path = Path(f"./pdfs/{name}/{name}.html").resolve()
     pdf_path = Path(f"./pdfs/{name}/{name}.pdf").resolve()
-    css_path = Path(f"./{template}.css").resolve()  # Absoluto
-
-    print(f"CSS Path: {css_path}")
+    
+    css_url = f"https://portfoliotavm.com/pdf-conversor/{template}.css"
+    print(f"CSS URL: {css_url}")
 
     font_config = FontConfiguration()
 
-    css = []
-    if css_path.exists():
-        css.append(CSS(filename=str(css_path), font_config=font_config))
-    else:
-        print(f"Archivo CSS {css_path} no encontrado")
+    css = [CSS(url=css_url, font_config=font_config)]
 
     HTML(filename=str(html_path), base_url=str(html_path.parent)).write_pdf(
         str(pdf_path),
         stylesheets=css,
         font_config=font_config
     )
+
 
 
 
