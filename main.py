@@ -8,25 +8,23 @@ app = Flask(__name__)
 CORS(app)
 
 def savePdf(name, template):
-    html_path = f"./pdfs/{name}/{name}.html"
-    pdf_path = f"./pdfs/{name}/{name}.pdf"
-    print(f"Generando PDF desde {html_path} a {pdf_path} con plantilla {template}")
-    print(f"savePdf: {template}")
-    # Seleccionar el archivo CSS según la plantilla
-    css_file = f"./{template}.css"
-    css_path = Path(css_file)
-    
+    html_path = Path(f"./pdfs/{name}/{name}.html")
+    pdf_path = Path(f"./pdfs/{name}/{name}.pdf")
+    css_path = Path(f"./{template}.css")  # CSS en la misma carpeta que app.py
+
     font_config = FontConfiguration()
-    
-    # Leer el contenido del archivo CSS seleccionado
+
+    css = []
     if css_path.exists():
-        css_content = css_path.read_text(encoding='utf-8')
-        css = CSS(string=css_content, font_config=font_config)
-        HTML(html_path).write_pdf(pdf_path, stylesheets=[css], font_config=font_config)
+        css.append(CSS(filename=str(css_path), font_config=font_config))
     else:
-        print(f"Archivo CSS {css_file} no encontrado, usando CSS vacío")
-        css = CSS(string='', font_config=font_config)
-        HTML(html_path).write_pdf(pdf_path, stylesheets=[css], font_config=font_config)
+        print(f"Archivo CSS {css_path} no encontrado")
+
+    # base_url permite cargar imágenes y referencias relativas
+    HTML(filename=str(html_path), base_url=str(html_path.parent)).write_pdf(
+        pdf_path, stylesheets=css, font_config=font_config
+    )
+
 
 @app.route('/eliminate-pdf', methods=['POST'])
 def eliminateFolder():
