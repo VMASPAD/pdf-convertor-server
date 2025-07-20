@@ -7,20 +7,20 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-def savePdf(name, template):
+def savePdf(name, template=1):
     html_path = f"./pdfs/{name}/{name}.html"
     pdf_path = f"./pdfs/{name}/{name}.pdf"
     print(f"Generando PDF desde {html_path} a {pdf_path} con plantilla {template}")
     
     # Seleccionar el archivo CSS según la plantilla
-    css_url = f"https://portfoliotavm.com/pdf-conversor/{template}.css"
+    css_file = f"{template}.css"
     css_path = Path(css_file)
     
     font_config = FontConfiguration()
     
     # Leer el contenido del archivo CSS seleccionado
-    if css_url.exists():
-        css_content = css_url.read_text(encoding='utf-8')
+    if css_path.exists():
+        css_content = css_path.read_text(encoding='utf-8')
         css = CSS(string=css_content, font_config=font_config)
         HTML(html_path).write_pdf(pdf_path, stylesheets=[css], font_config=font_config)
     else:
