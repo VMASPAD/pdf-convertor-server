@@ -8,25 +8,25 @@ app = Flask(__name__)
 CORS(app)
 
 def savePdf(name, template):
-    html_path = Path(f"./pdfs/{name}/{name}.html").resolve()
-    pdf_path = Path(f"./pdfs/{name}/{name}.pdf").resolve()
+    html_path = f"./pdfs/{name}/{name}.html"
+    pdf_path = f"./pdfs/{name}/{name}.pdf"
+    print(f"Generando PDF desde {html_path} a {pdf_path} con plantilla {template}")
     
+    # Seleccionar el archivo CSS según la plantilla
     css_url = f"https://portfoliotavm.com/pdf-conversor/{template}.css"
-    print(f"CSS URL: {css_url}")
-
+    css_path = Path(css_file)
+    
     font_config = FontConfiguration()
-
-    css = CSS(url=css_url, font_config=font_config)
-
-    HTML(filename=str(html_path), base_url=str(html_path.parent)).write_pdf(
-        str(pdf_path),
-        stylesheets=css,
-        font_config=font_config,
-        download_name=f"{name}.pdf"
-    )
-
-
-
+    
+    # Leer el contenido del archivo CSS seleccionado
+    if css_url.exists():
+        css_content = css_url.read_text(encoding='utf-8')
+        css = CSS(string=css_content, font_config=font_config)
+        HTML(html_path).write_pdf(pdf_path, stylesheets=[css], font_config=font_config)
+    else:
+        print(f"Archivo CSS {css_file} no encontrado, usando CSS vacío")
+        css = CSS(string='', font_config=font_config)
+        HTML(html_path).write_pdf(pdf_path, stylesheets=[css], font_config=font_config)
 
 @app.route('/eliminate-pdf', methods=['POST'])
 def eliminateFolder():
@@ -65,6 +65,11 @@ def generate_pdf():
         name = data.get('name')
         content = data.get('content')
         template = data.get('template')  # Valor por defecto: plantilla 1
+        
+        # Validar que template sea un número válido (1, 2, o 3)
+        if template not in [1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15]:
+            template = 1
+        
         if not name or not content:
             return jsonify({"error": "Se requieren 'name' y 'content'"}), 400
         print(template)
