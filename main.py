@@ -64,7 +64,7 @@ def generate_pdf():
         
         name = data.get('name')
         content = data.get('content')
-        template = data.get('template', 1)  # Valor por defecto: plantilla 1
+        template = data.get('template')  # Valor por defecto: plantilla 1
         
         # Validar que template sea un número válido (1, 2, o 3)
         if template not in [1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15]:
@@ -72,7 +72,7 @@ def generate_pdf():
         
         if not name or not content:
             return jsonify({"error": "Se requieren 'name' y 'content'"}), 400
-
+        print(template)
         # Crear carpeta y archivo HTML
         Path(f"pdfs/{name}/").mkdir(parents=True, exist_ok=True)
         Path(f"pdfs/{name}/{name}.html").write_text(f"{content}", encoding='utf-8')
