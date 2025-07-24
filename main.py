@@ -18,14 +18,44 @@ def savePdf(name, template):
     
     font_config = FontConfiguration()
     
+    # CSS adicional para maximizar el uso del espacio
+    pdf_optimization_css = """
+    @page {
+        size: A4;
+        margin: 10mm 10mm 10mm 10mm;  /* Márgenes mínimos */
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    """
+    
     # Leer el contenido del archivo CSS seleccionado
     if css_path.exists():
         css_content = css_path.read_text(encoding='utf-8')
-        css = CSS(string=css_content, font_config=font_config)
-        HTML(html_path).write_pdf(pdf_path, stylesheets=[css], font_config=font_config)
+        # Combinar CSS original con optimizaciones para PDF
+        combined_css = pdf_optimization_css + "\n" + css_content
+        css_main = CSS(string=css_content, font_config=font_config)
+        css_pdf = CSS(string=pdf_optimization_css, font_config=font_config)
+        HTML(html_path).write_pdf(pdf_path, stylesheets=[css_pdf, css_main], font_config=font_config)
     else:
-        print(f"Archivo CSS {css_file} no encontrado, usando CSS vacío")
-        css = CSS(string='', font_config=font_config)
+        print(f"Archivo CSS {css_file} no encontrado, usando solo CSS de optimización")
+        css = CSS(string=pdf_optimization_css, font_config=font_config)
         HTML(html_path).write_pdf(pdf_path, stylesheets=[css], font_config=font_config)
 
 @app.route('/eliminate-pdf', methods=['POST'])

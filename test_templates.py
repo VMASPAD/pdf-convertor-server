@@ -10,34 +10,30 @@ BASE_URL = "http://localhost:5000"
 
 # HTML de prueba para las facturas
 test_html = """
+
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="utf-8">
     <meta name="description" content="Presupuesto de automatizaciones">
-    <style>
-     
-    </style>
+    <link rel="stylesheet" href="./1.css">
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <div class="logo-container">
-                <div class="logo">
-                    <div>
-                        <img class="logo-text" src="logo.png" alt="Logo">
-                        <div class="logo-subtitle"></div>
-                    </div>
-                </div>
-            </div>
-            <h1 class="main-title">PRESUPUESTO</h1>
+        <div class="header"> 
+            <h1 class="main-title">{PRESUPUESTO}</h1>
         </div>
         
         <div class="client-info">
-            <div class="client-section">Facultad de Ciencias Exactas UNLP</div>
+            <div class="client-section">Datos del cliente</div>
+            <div class="client-section"> </div>
             <div class="client-details">
+                <strong>Cliente/Razon social:</strong> Facultad de Ciencias Exactas UNLP<br>
                 <strong>CUIT:</strong> 30-54666670-7<br>
-                <strong>Ubicación:</strong> Buenos Aires, Argentina
+                <strong>Ubicación:</strong> Buenos Aires, Argentina<br>
+                <strong>Telefono:</strong> 241234134<br>
+                <strong>Informacion Adicional: </strong>
             </div>
             <div class="date-badge">08/05/2025</div>
         </div>
@@ -67,32 +63,11 @@ test_html = """
                         <td>150</td>
                         <td>$6.150.000</td>
                     </tr>
-                    <tr>
-                        <td>Base de fijación e instalación y programación de la barrera y llaveros correspondientes</td>
-                        <td>1</td>
-                        <td>$3.807.000</td>
-                    </tr>
                 </tbody>
             </table>
         </div>
         
-        <div class="totals-section">
-            <div class="totals-grid">
-                <div class="totals-row">
-                    <div class="totals-label subtotal-label">Subtotal</div>
-                    <div class="totals-value subtotal-value">$26.338.392</div>
-                </div>
-                <div class="totals-row">
-                    <div class="totals-label tax-label">IVA (21%)</div>
-                    <div class="totals-value tax-value">$5.531.062</div>
-                </div>
-                <div class="totals-row total-row">
-                    <div class="totals-label total-label">Total</div>
-                    <div class="totals-value total-value">$31.869.454</div>
-                </div>
-            </div>
-        </div>
-        
+    <div class="totals-section">
         <div class="payment-info">
             <div class="payment-title">Información de Pago</div>
             <div class="payment-card">
@@ -103,12 +78,45 @@ test_html = """
                     <strong>CBU:</strong> 0720058880000214570721<br>
                     <strong>Alias:</strong> <span class="payment-highlight">MARIO.BARRIOS</span>
                 </div>
-            </div>
-            <div class="decorative-element"></div>
+            </div> 
         </div>
+        <div class="totals-grid">
+            <div class="totals-row">
+                <div class="totals-label subtotal-label">Subtotal</div>
+                <div class="totals-value subtotal-value">$26.338.392</div>
+            </div>
+            <div class="totals-row">
+                <div class="totals-label tax-label">IVA (21%)</div>
+                <div class="totals-value tax-value">$5.531.062</div>
+            </div>
+            <div class="totals-row total-row">
+                <div class="totals-label total-label">Total</div>
+                <div class="totals-value total-value">$31.869.454</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="footer-content">
+            <div class="company-info">
+                <div class="company-name">Nombre de la Empresa</div>
+                <div class="company-details">
+                    <span>Dirección: Calle Ejemplo 123, Ciudad</span><br>
+                    <span>Teléfono: +54 11 1234-5678</span><br>
+                    <span>Email: contacto@empresa.com</span>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="footer-note">Gracias por su confianza</div>
+                <div class="footer-website">www.empresa.com</div>
+            </div>
+        </div>
+    </div>
+
     </div>
 </body>
 </html>
+
 """
 
 def test_template(template_num):

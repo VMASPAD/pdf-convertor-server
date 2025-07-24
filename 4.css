@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+/* ROYAL PURPLE ELEGANT INVOICE DESIGN */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Crimson+Text:wght@400;600;700&display=swap');
+
+/* Configuración específica para PDF */
+@page {
+    size: A4;
+    margin: 8mm;
+}
 
 * {
     margin: 0;
@@ -7,32 +15,35 @@
 }
 
 body {
-    font-family: 'IBM Plex Sans', sans-serif;
-    background: #f5f5f5;
-    color: #212121;
-    line-height: 1.4;
-    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+    background: #faf7ff;
+    color: #581c87;
+    line-height: 1.6;
+    font-size: 14px;
     min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    margin: 0 auto;
-    background: #ffffff;
-    border: none;
-    border-radius: 0;
+    background: white;
+    box-shadow: 0 10px 40px rgba(88, 28, 135, 0.15);
+    border-radius: 20px;
     overflow: hidden;
-    position: relative;
-    box-shadow: none;
+    border: 2px solid #e9d5ff;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-/* Header minimalista */
+/* Header */
 .header {
-    background: #ffffff;
-    color: #212121;
-    padding: 60px 50px;
+    background: linear-gradient(135deg, #6b21a8, #7c3aed, #8b5cf6);
+    color: white;
+    padding: 45px 35px;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid #e0e0e0;
 }
 
 .header::before {
@@ -40,26 +51,17 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 4px;
-    height: 100%;
-    background: #2196f3;
-}
-
-.header::after {
-    content: '';
-    position: absolute;
+    right: 0;
     bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: #2196f3;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     position: relative;
     z-index: 2;
 }
@@ -67,130 +69,127 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 20px;
 }
 
 .logo-icon {
-    width: 32px;
-    height: 32px;
-    background: #2196f3;
-    border-radius: 0;
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, #581c87, #6b21a8);
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 600;
-    font-size: 14px;
-    color: #ffffff;
-    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 800;
+    font-size: 20px;
+    color: white;
+    box-shadow: 0 6px 20px rgba(88, 28, 135, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .logo-text {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: -0.2px;
-    color: #212121;
+    font-family: 'Crimson Text', serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -1px;
 }
 
 .logo-subtitle {
     font-size: 8px;
-    opacity: 0.6;
-    letter-spacing: 1px;
+    opacity: 0.9;
+    letter-spacing: 5px;
     text-transform: uppercase;
-    margin-top: 0;
-    color: #757575;
-    font-family: 'IBM Plex Mono', monospace;
+    margin-top: -5px;
+    font-weight: 500;
 }
 
 .main-title {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 32px;
-    font-weight: 300;
-    letter-spacing: -0.5px;
+    font-family: 'Crimson Text', serif;
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: -4px;
     text-align: center;
     position: relative;
     z-index: 2;
-    color: #212121;
-    text-transform: uppercase;
+    text-shadow: 3px 3px 12px rgba(0,0,0,0.2);
 }
 
-/* Información del cliente - estilo minimal */
+/* Client info */
 .client-info {
-    background: #fafafa;
-    margin: 0 50px;
-    padding: 30px;
-    border-radius: 0;
-    margin-top: 0;
+    background: linear-gradient(135deg, #faf7ff, #f3e8ff);
+    margin: 0 35px;
+    padding: 32px;
+    border-radius: 16px;
+    margin-top: -22px;
     position: relative;
-    z-index: 3;
-    border-left: 4px solid #2196f3;
+    z-index: 2;
+    border: 2px solid #e9d5ff;
+    box-shadow: 0 8px 25px rgba(88, 28, 135, 0.1);
 }
 
 .client-section {
-    color: #2196f3;
-    font-size: 10px;
-    font-weight: 600;
-    margin-bottom: 6px;
+    color: #7c3aed;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 1.5px;
 }
 
 .client-details {
-    color: #757575;
-    font-size: 13px;
-    line-height: 1.5;
+    color: #581c87;
+    font-size: 14px;
+    line-height: 1.7;
     font-weight: 400;
 }
 
 .date-badge {
     position: absolute;
-    top: 30px;
-    right: 30px;
-    background: #2196f3;
-    color: #ffffff;
-    padding: 6px 12px;
-    border-radius: 0;
-    font-size: 10px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: 'IBM Plex Mono', monospace;
+    top: 32px;
+    right: 32px;
+    background: linear-gradient(135deg, #581c87, #6b21a8);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 6px 16px rgba(88, 28, 135, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Tabla minimal */
+/* Table */
 .table-container {
-    padding: 50px;
-    background: #ffffff;
+    padding: 0px;
+    background: white;
 }
 
 .content-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    border-radius: 0;
+    border-radius: 16px;
     overflow: hidden;
-    border: 1px solid #e0e0e0;
+    border: 2px solid #e9d5ff;
+    box-shadow: 0 8px 25px rgba(88, 28, 135, 0.1);
 }
 
 .content-table th {
-    background: #fafafa;
-    color: #212121;
-    padding: 16px;
-    font-weight: 600;
+    background: linear-gradient(135deg, #faf7ff, #e9d5ff);
+    color: #581c87;
+    padding: 20px 22px;
+    font-weight: 800;
     text-transform: uppercase;
-    font-size: 10px;
-    letter-spacing: 1px;
-    font-family: 'IBM Plex Mono', monospace;
-    border-bottom: 1px solid #e0e0e0;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    border-bottom: 2px solid #d8b4fe;
 }
 
 .content-table th:first-child {
-    border-radius: 0;
+    border-radius: 16px 0 0 0;
 }
 
 .content-table th:last-child {
-    border-radius: 0;
+    border-radius: 0 16px 0 0;
     text-align: right;
 }
 
@@ -199,54 +198,61 @@ body {
 }
 
 .content-table td {
-    padding: 16px;
-    border-bottom: 1px solid #f5f5f5;
-    background: #ffffff;
-    transition: all 0.2s ease;
-    font-size: 13px;
+    padding: 18px 22px;
+    border-bottom: 1px solid #f3e8ff;
+    background: white;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .content-table tbody tr:hover td {
-    background: #fafafa;
+    background: linear-gradient(135deg, #faf7ff, #f9fafb);
+    transform: scale(1.01);
 }
 
 .content-table td:nth-child(2) {
     text-align: center;
-    font-weight: 500;
-    color: #2196f3;
-    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
+    color: #7c3aed;
 }
 
 .content-table td:last-child {
     text-align: right;
-    font-weight: 600;
-    color: #212121;
-    font-size: 13px;
-    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 800;
+    color: #581c87;
+    font-size: 16px;
+}
+
+.content-table tbody tr:last-child td {
+    border-bottom: none;
 }
 
 .content-table tbody tr:last-child td:first-child {
-    border-radius: 0;
+    border-radius: 0 0 0 16px;
 }
 
 .content-table tbody tr:last-child td:last-child {
-    border-radius: 0;
+    border-radius: 0 0 16px 0;
 }
 
-/* Sección de totales minimal */
+/* Totals section */
 .totals-section {
-    background: #fafafa;
-    padding: 30px 50px;
+    background: linear-gradient(135deg, #faf7ff, #e9d5ff);
     margin: 0;
-    color: #212121;
-    position: relative;
-    border-top: 1px solid #e0e0e0;
+    color: #581c87;
+    border-top: 2px solid #d8b4fe;
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 28px 35px;
 }
 
 .totals-grid {
     display: grid;
+    width: 24rem;
     grid-template-columns: 1fr auto;
-    gap: 12px;
+    gap: 16px;
     align-items: center;
 }
 
@@ -255,140 +261,268 @@ body {
 }
 
 .totals-label {
-    font-weight: 500;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 11px;
-    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 1.2px;
+    font-size: 14px;
+    color: #7c3aed;
 }
 
 .totals-value {
     text-align: right;
-    font-weight: 600;
-    font-size: 13px;
-    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 800;
+    font-size: 16px;
+    color: #581c87;
 }
 
-.subtotal-label {
-    opacity: 0.8;
+.subtotal-label,
+.tax-label {
+    opacity: 0.85;
 }
 
-.subtotal-value {
-    opacity: 0.8;
+.subtotal-value,
+.tax-value {
+    opacity: 0.85;
 }
 
 .tax-label {
-    opacity: 0.6;
-    font-size: 10px;
+    font-size: 13px;
 }
 
 .tax-value {
-    opacity: 0.6;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .total-row {
-    border-top: 1px solid #e0e0e0;
-    padding-top: 12px;
-    margin-top: 12px;
+    border-top: 2px solid #a855f7;
+    padding-top: 16px;
+    margin-top: 16px;
 }
 
 .total-label {
-    font-size: 12px;
-    font-weight: 600;
-    color: #2196f3;
+    font-family: 'Crimson Text', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #581c87;
 }
 
 .total-value {
-    font-size: 16px;
-    font-weight: 600;
-    color: #2196f3;
+    font-family: 'Crimson Text', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #581c87;
 }
 
-/* Información de pago minimal */
+/* Payment info */
 .payment-info {
-    background: #ffffff;
-    padding: 50px;
+    padding: 0px;
     margin: 0;
-    position: relative;
-    border-top: 1px solid #e0e0e0;
+    border-top: 2px solid #e9d5ff;
+    background: #fafafa;
 }
 
 .payment-title {
-    color: #212121;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 20px;
+    color: #7c3aed;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 25px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: 'IBM Plex Mono', monospace;
+    gap: 12px;
 }
 
 .payment-title::before {
-    content: '●';
-    font-size: 12px;
-    color: #2196f3;
+    content: '💎';
+    font-size: 18px;
 }
 
 .payment-card {
-    background: #fafafa;
-    padding: 20px;
-    border-radius: 0;
-    border-left: 4px solid #2196f3;
+    background: white;
+    padding: 28px;
+    border-radius: 16px;
+    border-left: 5px solid #7c3aed;
+    border: 2px solid #e9d5ff;
+    box-shadow: 0 8px 25px rgba(88, 28, 135, 0.1);
 }
 
 .payment-details {
-    color: #757575;
-    font-size: 13px;
-    line-height: 1.5;
+    color: #581c87;
+    font-size: 15px;
+    line-height: 1.7;
     font-weight: 400;
 }
 
 .payment-details strong {
-    color: #212121;
-    font-weight: 600;
+    color: #581c87;
+    font-weight: 800;
 }
 
 .payment-highlight {
-    background: #2196f3;
-    color: #ffffff;
-    padding: 2px 6px;
-    border-radius: 0;
-    font-weight: 500;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-family: 'IBM Plex Mono', monospace;
+    background: linear-gradient(135deg, #581c87, #7c3aed);
+    color: white;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 13px;
 }
 
-/* Elemento decorativo */
-.decorative-element {
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
-    width: 24px;
-    height: 24px;
-    background: #2196f3;
-    border-radius: 0;
-    opacity: 0.1;
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #581c87, #6b21a8);
+    color: white;
+    padding: 32px 35px;
+    margin-top: 0;
+    border-top: 2px solid #e9d5ff;
 }
 
-/* Ajustes para impresión */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 35px;
+}
+
+.company-info {
+    flex: 1;
+}
+
+.company-name {
+    font-family: 'Crimson Text', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+    letter-spacing: -0.8px;
+}
+
+.company-details {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #e9d5ff;
+    opacity: 0.95;
+}
+
+.footer-right {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.footer-note {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f3e8ff;
+    margin-bottom: 6px;
+    font-style: italic;
+}
+
+.footer-website {
+    font-size: 14px;
+    color: #c084fc;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+}
+
+/* Print adjustments */
 @media print {
+    @page {
+        size: A4;
+        margin: 8mm;
+    }
+    
     body {
         background: white;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
     }
     
     .container {
         box-shadow: none;
         border-radius: 0;
+        border: 1px solid #ccc;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
     }
     
-    .header::before,
-    .header::after {
-        display: none;
+    .header {
+        background: #6b21a8 !important;
+        color: white !important;
+        page-break-inside: avoid;
+    }
+    
+    .totals-section {
+        background: #faf7ff !important;
+        page-break-inside: avoid;
+    }
+    
+    .payment-info {
+        background: white !important;
+    }
+    
+    .footer {
+        background: #581c87 !important;
+        color: white !important;
+        page-break-inside: avoid;
+    }
+    
+    .table-container {
+        page-break-inside: auto;
+    }
+    
+    .content-table tr {
+        page-break-inside: avoid;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        border-radius: 12px;
+    }
+    
+    .header {
+        padding: 35px 25px;
+    }
+    
+    .client-info {
+        margin: 0 25px;
+    }
+    
+    .table-container {
+        padding: 25px;
+    }
+    
+    .totals-section {
+        padding: 25px 30px;
+    }
+    
+    .payment-info {
+        padding: 25px;
+    }
+    
+    .footer {
+        padding: 25px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: left;
+    }
+    
+    .footer-right {
+        text-align: left;
+    }
+    
+    .main-title {
+        font-size: 34px;
+    }
+    
+    .logo-text {
+        font-size: 24px;
     }
 }

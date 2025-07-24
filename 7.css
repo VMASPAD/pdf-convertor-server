@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka+One:wght@400&family=Nunito:wght@400;600;700;800&display=swap');
+/* MIDNIGHT BLACK PREMIUM INVOICE DESIGN */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;600;700&display=swap');
+
+/* Configuración específica para PDF */
+@page {
+    size: A4;
+    margin: 8mm;
+}
 
 * {
     margin: 0;
@@ -7,93 +15,60 @@
 }
 
 body {
-    font-family: 'Nunito', sans-serif;
-    background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 25%, #45b7d1 50%, #96ceb4 75%, #feca57 100%);
-    color: #2c3e50;
-    line-height: 1.7;
-    font-size: 15px;
+    font-family: 'JetBrains Mono', monospace;
+    background: #0f172a;
+    color: black;
+    line-height: 1.6;
+    font-size: 14px;
     min-height: 100vh;
-    position: relative;
-    animation: rainbow-shift 10s ease-in-out infinite;
-}
-
-@keyframes rainbow-shift {
-    0%, 100% { 
-        background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 25%, #45b7d1 50%, #96ceb4 75%, #feca57 100%);
-    }
-    25% { 
-        background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 25%, #96ceb4 50%, #feca57 75%, #ff6b6b 100%);
-    }
-    50% { 
-        background: linear-gradient(135deg, #45b7d1 0%, #96ceb4 25%, #feca57 50%, #ff6b6b 75%, #4ecdc4 100%);
-    }
-    75% { 
-        background: linear-gradient(135deg, #96ceb4 0%, #feca57 25%, #ff6b6b 50%, #4ecdc4 75%, #45b7d1 100%);
-    }
-}
-
-body::before {
-    content: '🌈';
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    font-size: 50px;
-    opacity: 0.3;
-    animation: bounce 2s ease-in-out infinite;
-    z-index: -1;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 5px solid #ff6b6b;
-    border-radius: 30px;
+    background: #1e293b;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
     overflow: hidden;
+    border: 1px solid #334155;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     position: relative;
-    box-shadow: 0 20px 60px rgba(255, 107, 107, 0.4);
 }
 
-/* Header divertido */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #06b6d4, #10b981, #f59e0b, #ef4444);
+    z-index: 10;
+}
+
+/* Header */
 .header {
-    background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+    color: black;
     padding: 45px 35px;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid #334155;
 }
 
 .header::before {
-    content: '🎉';
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    font-size: 35px;
-    opacity: 0.4;
-    animation: party 3s ease-in-out infinite;
-}
-
-@keyframes party {
-    0%, 100% { transform: rotate(0deg) scale(1); }
-    25% { transform: rotate(10deg) scale(1.1); }
-    50% { transform: rotate(-10deg) scale(0.9); }
-    75% { transform: rotate(5deg) scale(1.05); }
-}
-
-.header::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
-    width: 100%;
-    height: 8px;
-    background: linear-gradient(90deg, #ff6b6b 0%, #4ecdc4 20%, #45b7d1 40%, #96ceb4 60%, #feca57 80%, #ff6b6b 100%);
-    border-radius: 0 0 15px 15px;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
 }
 
 .logo-container {
@@ -108,146 +83,132 @@ body::before {
 .logo {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 20px;
 }
 
 .logo-icon {
-    width: 65px;
-    height: 65px;
-    background: linear-gradient(135deg, #feca57 0%, #ff6b6b 100%);
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #334155, #475569);
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 800;
-    font-size: 28px;
-    color: #ffffff;
-    box-shadow: 0 8px 30px rgba(254, 202, 87, 0.5);
-    border: 4px solid #ffffff;
-    font-family: 'Fredoka One', cursive;
-    animation: wiggle 2s ease-in-out infinite;
-}
-
-@keyframes wiggle {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(5deg); }
-    75% { transform: rotate(-5deg); }
+    font-size: 18px;
+    color: black;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #475569;
 }
 
 .logo-text {
-    font-family: 'Bungee', cursive;
-    font-size: 32px;
-    font-weight: 400;
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
     letter-spacing: 2px;
-    color: #ffffff;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    text-transform: uppercase;
 }
 
 .logo-subtitle {
-    font-size: 14px;
-    opacity: 0.9;
-    letter-spacing: 2px;
-    text-transform: lowercase;
-    margin-top: 3px;
-    color: #feca57;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 600;
+    font-size: 8px;
+    opacity: 0.7;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: -3px;
+    font-weight: 400;
 }
 
 .main-title {
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Oswald', sans-serif;
     font-size: 56px;
-    font-weight: 400;
-    letter-spacing: 3px;
+    font-weight: 700;
+    letter-spacing: 4px;
     text-align: center;
     position: relative;
     z-index: 2;
-    color: #ffffff;
-    text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
-    transform: rotate(-3deg);
+    text-transform: uppercase;
+    background: linear-gradient(135deg, black, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-/* Información del cliente - estilo alegre */
+/* Client info */
 .client-info {
-    background: linear-gradient(135deg, #ffffff 0%, #feca57 100%);
+    background: linear-gradient(135deg, #334155, #475569);
     margin: 0 35px;
-    padding: 32px;
-    border-radius: 25px;
-    margin-top: -25px;
+    padding: 30px;
+    border-radius: 4px;
+    margin-top: -20px;
     position: relative;
-    z-index: 3;
-    border: 4px solid #4ecdc4;
-    box-shadow: 0 12px 40px rgba(78, 205, 196, 0.3);
+    z-index: 2;
+    border: 1px solid #475569;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .client-section {
-    color: #ff6b6b;
-    font-size: 16px;
-    font-weight: 800;
-    margin-bottom: 12px;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-    font-family: 'Fredoka One', cursive;
+    color: black;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .client-details {
-    color: #2c3e50;
-    font-size: 15px;
-    line-height: 2;
-    font-weight: 600;
+    color: black;
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: 400;
 }
 
 .date-badge {
     position: absolute;
-    top: 32px;
-    right: 32px;
-    background: linear-gradient(135deg, #45b7d1 0%, #96ceb4 100%);
-    color: #ffffff;
-    padding: 12px 22px;
-    border-radius: 50px;
-    font-size: 13px;
-    font-weight: 800;
-    box-shadow: 0 6px 25px rgba(69, 183, 209, 0.4);
-    text-transform: capitalize;
-    letter-spacing: 1px;
-    font-family: 'Nunito', sans-serif;
-    transform: rotate(8deg);
-    border: 3px solid #ffffff;
+    top: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #334155, #475569);
+    color: black;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #475569;
 }
 
-/* Tabla colorida */
+/* Table */
 .table-container {
-    padding: 35px;
-    background: #ffffff;
+    padding: 0px;
+    background: #1e293b;
 }
 
 .content-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    border-radius: 20px;
+    border-radius: 4px;
     overflow: hidden;
-    box-shadow: 0 10px 40px rgba(255, 107, 107, 0.2);
-    border: 4px solid #ff6b6b;
+    border: 1px solid #334155;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .content-table th {
-    background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
-    color: #ffffff;
-    padding: 22px;
-    font-weight: 800;
-    text-transform: capitalize;
-    font-size: 15px;
-    letter-spacing: 1px;
-    font-family: 'Fredoka One', cursive;
+    background: linear-gradient(135deg, #334155, #475569);
+    color: black;
+    padding: 16px 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #475569;
 }
 
 .content-table th:first-child {
-    border-radius: 20px 0 0 0;
+    border-radius: 4px 0 0 0;
 }
 
 .content-table th:last-child {
-    border-radius: 0 20px 0 0;
+    border-radius: 0 4px 0 0;
     text-align: right;
 }
 
@@ -256,65 +217,61 @@ body::before {
 }
 
 .content-table td {
-    padding: 7px 18px;
-    border-bottom: 3px solid #feca57;
-    background: #ffffff;
-    transition: all 0.4s ease;
-    font-size: 15px;
-    font-weight: 600;
+    padding: 14px 18px;
+    border-bottom: 1px solid #334155;
+    background: #1e293b;
+    transition: all 0.3s ease;
 }
 
 .content-table tbody tr:hover td {
-    background: linear-gradient(135deg, #ffffff 0%, #feca57 100%);
-    transform: scale(1.02);
-    box-shadow: 0 5px 20px rgba(254, 202, 87, 0.3);
+    background: #334155;
+    color: #f1f5f9;
 }
 
 .content-table td:nth-child(2) {
     text-align: center;
-    font-weight: 800;
-    color: #ff6b6b;
-    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    color: black;
 }
 
 .content-table td:last-child {
     text-align: right;
-    font-weight: 800;
-    color: #2c3e50;
-    font-size: 17px;
-    font-family: 'Fredoka One', cursive;
+    font-weight: 700;
+    color: black;
+    font-size: 15px;
+}
+
+.content-table tbody tr:last-child td {
+    border-bottom: none;
 }
 
 .content-table tbody tr:last-child td:first-child {
-    border-radius: 0 0 0 20px;
+    border-radius: 0 0 0 4px;
 }
 
 .content-table tbody tr:last-child td:last-child {
-    border-radius: 0 0 20px 0;
+    border-radius: 0 0 4px 0;
 }
 
-/* Sección de totales divertida */
+/* Totals section */
 .totals-section {
-    background: linear-gradient(135deg, #96ceb4 0%, #feca57 100%);
-    padding: 32px 35px;
+    background: linear-gradient(135deg, #334155, #475569);
     margin: 0;
-    color: #ffffff;
-    position: relative;
-}
-
-.totals-section::before {
-    content: '💰';
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    font-size: 28px;
-    opacity: 0.4;
+    color: black;
+    border-top: 1px solid #475569;
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 25px 35px;
 }
 
 .totals-grid {
     display: grid;
+    width: 20rem;
     grid-template-columns: 1fr auto;
-    gap: 18px;
+    gap: 12px;
     align-items: center;
 }
 
@@ -323,189 +280,288 @@ body::before {
 }
 
 .totals-label {
-    font-weight: 700;
-    text-transform: capitalize;
+    font-weight: 600;
+    text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 15px;
-    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    color: black;
 }
 
 .totals-value {
     text-align: right;
-    font-weight: 800;
-    font-size: 17px;
-    font-family: 'Fredoka One', cursive;
+    font-weight: 700;
+    font-size: 14px;
+    color: black;
 }
 
-.subtotal-label {
-    opacity: 0.9;
+.subtotal-label,
+.tax-label {
+    opacity: 0.8;
 }
 
-.subtotal-value {
-    opacity: 0.9;
+.subtotal-value,
+.tax-value {
+    opacity: 0.8;
 }
 
 .tax-label {
-    opacity: 0.8;
-    font-size: 13px;
+    font-size: 10px;
 }
 
 .tax-value {
-    opacity: 0.8;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .total-row {
-    border-top: 4px solid rgba(255, 255, 255, 0.4);
-    padding-top: 18px;
-    margin-top: 18px;
+    border-top: 1px solid #64748b;
+    padding-top: 12px;
+    margin-top: 12px;
 }
 
 .total-label {
-    font-size: 20px;
-    font-weight: 800;
-    font-family: 'Bungee', cursive;
-    color: #ff6b6b;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .total-value {
-    font-size: 26px;
-    font-weight: 800;
-    color: #ffffff;
-    font-family: 'Bungee', cursive;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: black;
 }
 
-/* Información de pago alegre */
+/* Payment info */
 .payment-info {
-    background: linear-gradient(135deg, #ffffff 0%, #4ecdc4 100%);
-    padding: 35px;
+    padding: 0px;
     margin: 0;
-    position: relative;
+    border-top: 1px solid #334155;
+    background: #0f172a;
 }
 
 .payment-title {
-    color: #ff6b6b;
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 25px;
+    color: black;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-family: 'Fredoka One', cursive;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .payment-title::before {
-    content: '🎪';
-    font-size: 22px;
+    content: '⚡';
+    font-size: 14px;
 }
 
 .payment-card {
-    background: #ffffff;
-    padding: 28px;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(78, 205, 196, 0.2);
-    border-left: 6px solid #feca57;
-    border: 4px solid #45b7d1;
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 4px;
+    border-left: 3px solid #64748b;
+    border: 1px solid #334155;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .payment-details {
-    color: #2c3e50;
-    font-size: 15px;
-    line-height: 2;
-    font-weight: 600;
+    color: black;
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: 400;
 }
 
 .payment-details strong {
-    color: #ff6b6b;
-    font-weight: 800;
-    font-family: 'Nunito', sans-serif;
+    color: #f1f5f9;
+    font-weight: 700;
 }
 
 .payment-highlight {
-    background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
-    color: #ffffff;
-    padding: 8px 16px;
-    border-radius: 25px;
+    background: linear-gradient(135deg, #334155, #475569);
+    color: black;
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 11px;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: black;
+    padding: 30px 35px;
+    margin-top: 0;
+    border-top: 1px solid #334155;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.company-info {
+    flex: 1;
+}
+
+.company-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
     font-weight: 700;
-    font-size: 13px;
-    text-transform: capitalize;
+    color: black;
+    margin-bottom: 8px;
     letter-spacing: 1px;
-    font-family: 'Nunito', sans-serif;
-    border: 2px solid #ffffff;
+    text-transform: uppercase;
 }
 
-/* Elemento decorativo */
-.decorative-element {
-    position: absolute;
-    bottom: 35px;
-    right: 35px;
-    width: 75px;
-    height: 75px;
-    background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
-    border-radius: 50%;
-    opacity: 0.3;
-    border: 5px solid #ffffff;
-    animation: pulse-rainbow 3s ease-in-out infinite;
+.company-details {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #64748b;
+    opacity: 0.9;
 }
 
-@keyframes pulse-rainbow {
-    0%, 100% { 
-        transform: scale(1);
-        background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
-    }
-    50% { 
-        transform: scale(1.1);
-        background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
-    }
+.footer-right {
+    text-align: right;
+    flex-shrink: 0;
 }
 
-.decorative-element::before {
-    content: '🎨';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 25px;
-    opacity: 0.8;
+.footer-note {
+    font-size: 12px;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 4px;
+    font-style: italic;
 }
 
-/* Ajustes para impresión */
+.footer-website {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Print adjustments */
 @media print {
-    body {
-        background: white;
-        animation: none;
+    @page {
+        size: A4;
+        margin: 8mm;
     }
     
-    body::before {
-        display: none;
+    body {
+        background: white;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        color: #000;
     }
     
     .container {
         box-shadow: none;
         border-radius: 0;
-        border: 2px solid black;
-        backdrop-filter: none;
+        border: 1px solid #ccc;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+        background: white;
     }
     
-    .header::before,
-    .header::after {
-        display: none;
+    .header {
+        background: #1e293b !important;
+        color: white !important;
+        page-break-inside: avoid;
     }
     
-    .totals-section::before {
-        display: none;
+    .totals-section {
+        background: #f8f9fa !important;
+        color: #000 !important;
+        page-break-inside: avoid;
     }
     
-    .decorative-element::before {
-        display: none;
+    .payment-info {
+        background: white !important;
+        color: #000 !important;
     }
     
-    .logo-icon {
-        animation: none;
+    .footer {
+        background: #1e293b !important;
+        color: white !important;
+        page-break-inside: avoid;
     }
     
-    .decorative-element {
-        animation: none;
+    .table-container {
+        page-break-inside: auto;
+        background: white !important;
+    }
+    
+    .content-table tr {
+        page-break-inside: avoid;
+    }
+    
+    .content-table {
+        background: white !important;
+    }
+    
+    .content-table td {
+        background: white !important;
+        color: #000 !important;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        border-radius: 6px;
+    }
+    
+    .header {
+        padding: 30px 20px;
+    }
+    
+    .client-info {
+        margin: 0 20px;
+    }
+    
+    .table-container {
+        padding: 20px;
+    }
+    
+    .totals-section {
+        padding: 20px 25px;
+    }
+    
+    .payment-info {
+        padding: 20px;
+    }
+    
+    .footer {
+        padding: 20px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: left;
+    }
+    
+    .footer-right {
+        text-align: left;
+    }
+    
+    .main-title {
+        font-size: 28px;
+    }
+    
+    .logo-text {
+        font-size: 20px;
     }
 }

@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700&display=swap');
+/* ROSE GOLD LUXURY INVOICE DESIGN */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+/* Configuración específica para PDF */
+@page {
+    size: A4;
+    margin: 8mm;
+}
 
 * {
     margin: 0;
@@ -7,97 +15,65 @@
 }
 
 body {
-    font-family: 'Exo 2', sans-serif;
-    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-    color: #00d4ff;
-    line-height: 1.5;
+    font-family: 'Lora', serif;
+    background: #fdf2f8;
+    color: #9f1239;
+    line-height: 1.6;
     font-size: 14px;
     min-height: 100vh;
-    position: relative;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 25% 25%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(0, 255, 127, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: -1;
-    animation: pulse-bg 4s ease-in-out infinite;
-}
-
-@keyframes pulse-bg {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    margin: 0 auto;
-    background: rgba(15, 15, 35, 0.95);
-    backdrop-filter: blur(15px);
-    border: 1px solid #00d4ff;
-    border-radius: 12px;
+    background: white;
+    box-shadow: 0 20px 60px rgba(159, 18, 57, 0.15);
+    border-radius: 24px;
     overflow: hidden;
+    border: 3px solid #fce7f3;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     position: relative;
-    box-shadow: 0 25px 80px rgba(0, 212, 255, 0.3);
 }
 
-/* Header futurista */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(251, 207, 232, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Header */
 .header {
-    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
-    color: #00d4ff;
+    background: linear-gradient(135deg, #be185d, #e11d48, #f43f5e);
+    color: white;
     padding: 50px 40px;
     position: relative;
     overflow: hidden;
-    border-bottom: 2px solid #00ff7f;
+    z-index: 2;
 }
 
 .header::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        linear-gradient(45deg, transparent 0%, rgba(0, 212, 255, 0.05) 50%, transparent 100%),
-        repeating-linear-gradient(
-            45deg,
-            transparent,
-            transparent 10px,
-            rgba(0, 255, 127, 0.02) 12px
-        );
-    animation: matrix-rain 5s linear infinite;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
 }
 
-@keyframes matrix-rain {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100%); }
-}
-
-.header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, #00d4ff 0%, #00ff7f 50%, #00d4ff 100%);
-    animation: neon-glow 3s ease-in-out infinite;
-}
-
-@keyframes neon-glow {
-    0%, 100% { 
-        box-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff, 0 0 15px #00d4ff;
-    }
-    50% { 
-        box-shadow: 0 0 10px #00ff7f, 0 0 20px #00ff7f, 0 0 30px #00ff7f;
-    }
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
 }
 
 .logo-container {
@@ -106,144 +82,136 @@ body::before {
     justify-content: space-between;
     margin-bottom: 40px;
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 25px;
 }
 
 .logo-icon {
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, #00d4ff 0%, #00ff7f 100%);
-    border-radius: 8px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #9f1239, #be185d);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 800;
-    font-size: 20px;
-    color: #0f0f23;
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
-    font-family: 'Orbitron', monospace;
-    border: 1px solid #00ff7f;
+    font-weight: 700;
+    font-size: 24px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(159, 18, 57, 0.4);
+    border: 4px solid rgba(255, 255, 255, 0.3);
 }
 
 .logo-text {
-    font-family: 'Orbitron', monospace;
-    font-size: 24px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
     font-weight: 700;
-    letter-spacing: 1px;
-    color: #00d4ff;
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+    letter-spacing: -1.5px;
 }
 
 .logo-subtitle {
-    font-size: 9px;
-    opacity: 0.8;
-    letter-spacing: 3px;
+    font-size: 6px;
+    opacity: 0.9;
+    letter-spacing: 8px;
     text-transform: uppercase;
-    margin-top: -1px;
-    color: #00ff7f;
-    font-family: 'Orbitron', monospace;
+    margin-top: -8px;
+    font-weight: 500;
+    font-family: 'Lora', serif;
 }
 
 .main-title {
-    font-family: 'Orbitron', monospace;
-    font-size: 42px;
-    font-weight: 800;
-    letter-spacing: 2px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 72px;
+    font-weight: 700;
+    letter-spacing: -6px;
     text-align: center;
     position: relative;
-    z-index: 2;
-    color: #00d4ff;
-    text-transform: uppercase;
-    text-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
+    z-index: 3;
+    text-shadow: 4px 4px 20px rgba(0,0,0,0.3);
 }
 
-/* Información del cliente - estilo sci-fi */
+/* Client info */
 .client-info {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    background: linear-gradient(135deg, #fdf2f8, #fce7f3);
     margin: 0 40px;
-    padding: 30px;
-    border-radius: 8px;
-    margin-top: -25px;
+    padding: 38px;
+    border-radius: 20px;
+    margin-top: -28px;
     position: relative;
-    z-index: 3;
-    border: 1px solid #00ff7f;
-    box-shadow: inset 0 0 20px rgba(0, 255, 127, 0.1);
+    z-index: 2;
+    border: 2px solid #fce7f3;
+    box-shadow: 0 15px 40px rgba(159, 18, 57, 0.1);
 }
 
 .client-section {
-    color: #00ff7f;
-    font-size: 11px;
-    font-weight: 600;
-    margin-bottom: 8px;
+    color: #e11d48;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-family: 'Orbitron', monospace;
 }
 
 .client-details {
-    color: #8fa3d3;
-    font-size: 14px;
-    line-height: 1.6;
+    color: #9f1239;
+    font-size: 15px;
+    line-height: 1.8;
     font-weight: 400;
 }
 
 .date-badge {
     position: absolute;
-    top: 30px;
-    right: 30px;
-    background: linear-gradient(135deg, #00ff7f 0%, #00d4ff 100%);
-    color: #0f0f23;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 11px;
+    top: 38px;
+    right: 38px;
+    background: linear-gradient(135deg, #9f1239, #be185d);
+    color: white;
+    padding: 15px 24px;
+    border-radius: 15px;
+    font-size: 14px;
     font-weight: 700;
-    box-shadow: 0 0 20px rgba(0, 255, 127, 0.6);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: 'Orbitron', monospace;
-    border: 1px solid #00d4ff;
+    box-shadow: 0 10px 25px rgba(159, 18, 57, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
-/* Tabla sci-fi */
+/* Table */
 .table-container {
-    padding: 40px;
-    background: #0f0f23;
+    padding: 0px;
+    background: white;
+    position: relative;
+    z-index: 2;
 }
 
 .content-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    border-radius: 8px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-    border: 1px solid #00d4ff;
+    border: 2px solid #fce7f3;
+    box-shadow: 0 15px 40px rgba(159, 18, 57, 0.1);
 }
 
 .content-table th {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    color: #00d4ff;
-    padding: 18px;
+    background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+    color: #9f1239;
+    padding: 24px 28px;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 11px;
-    letter-spacing: 2px;
-    font-family: 'Orbitron', monospace;
-    border-bottom: 1px solid #00ff7f;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    border-bottom: 2px solid #fbcfe8;
 }
 
 .content-table th:first-child {
-    border-radius: 8px 0 0 0;
+    border-radius: 20px 0 0 0;
 }
 
 .content-table th:last-child {
-    border-radius: 0 8px 0 0;
+    border-radius: 0 20px 0 0;
     text-align: right;
 }
 
@@ -252,66 +220,64 @@ body::before {
 }
 
 .content-table td {
-    padding: 16px 18px;
-    border-bottom: 1px solid #2a2a3e;
-    background: #16213e;
-    transition: all 0.3s ease;
-    font-size: 14px;
+    padding: 22px 28px;
+    border-bottom: 1px solid #fce7f3;
+    background: white;
+    transition: all 0.4s ease;
 }
 
 .content-table tbody tr:hover td {
-    background: linear-gradient(135deg, #1a1a2e 0%, #203050 100%);
-    box-shadow: inset 0 0 15px rgba(0, 212, 255, 0.1);
+    background: linear-gradient(135deg, #fdf2f8, #fff1f2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(159, 18, 57, 0.1);
 }
 
 .content-table td:nth-child(2) {
     text-align: center;
-    font-weight: 600;
-    color: #00ff7f;
-    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    color: #e11d48;
 }
 
 .content-table td:last-child {
     text-align: right;
     font-weight: 700;
-    color: #00d4ff;
-    font-size: 15px;
-    font-family: 'Orbitron', monospace;
+    color: #9f1239;
+    font-size: 17px;
+}
+
+.content-table tbody tr:last-child td {
+    border-bottom: none;
 }
 
 .content-table tbody tr:last-child td:first-child {
-    border-radius: 0 0 0 8px;
+    border-radius: 0 0 0 20px;
 }
 
 .content-table tbody tr:last-child td:last-child {
-    border-radius: 0 0 8px 0;
+    border-radius: 0 0 20px 0;
 }
 
-/* Sección de totales sci-fi */
+/* Totals section */
 .totals-section {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    padding: 30px 40px;
+    background: linear-gradient(135deg, #fdf2f8, #fce7f3);
     margin: 0;
-    color: #00d4ff;
+    color: #9f1239;
+    border-top: 2px solid #fbcfe8;
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 35px 40px;
     position: relative;
-    border-top: 2px solid #00ff7f;
-}
-
-.totals-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, #00d4ff 0%, #00ff7f 50%, #00d4ff 100%);
-    animation: neon-glow 3s ease-in-out infinite;
+    z-index: 2;
 }
 
 .totals-grid {
     display: grid;
+    width: 28rem;
     grid-template-columns: 1fr auto;
-    gap: 15px;
+    gap: 20px;
     align-items: center;
 }
 
@@ -320,175 +286,272 @@ body::before {
 }
 
 .totals-label {
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 12px;
-    font-family: 'Orbitron', monospace;
+    letter-spacing: 1.8px;
+    font-size: 15px;
+    color: #e11d48;
 }
 
 .totals-value {
     text-align: right;
     font-weight: 700;
-    font-size: 14px;
-    font-family: 'Orbitron', monospace;
+    font-size: 17px;
+    color: #9f1239;
 }
 
-.subtotal-label {
-    opacity: 0.8;
+.subtotal-label,
+.tax-label {
+    opacity: 0.85;
 }
 
-.subtotal-value {
-    opacity: 0.8;
+.subtotal-value,
+.tax-value {
+    opacity: 0.85;
 }
 
 .tax-label {
-    opacity: 0.7;
-    font-size: 10px;
+    font-size: 14px;
 }
 
 .tax-value {
-    opacity: 0.7;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .total-row {
-    border-top: 1px solid rgba(0, 255, 127, 0.3);
-    padding-top: 15px;
-    margin-top: 15px;
+    border-top: 2px solid #f472b6;
+    padding-top: 20px;
+    margin-top: 20px;
 }
 
 .total-label {
-    font-size: 15px;
-    font-weight: 800;
-    color: #00ff7f;
+    font-family: 'Dancing Script', cursive;
+    font-size: 22px;
+    font-weight: 700;
+    color: #9f1239;
 }
 
 .total-value {
-    font-size: 20px;
-    font-weight: 800;
-    color: #00d4ff;
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+    font-family: 'Dancing Script', cursive;
+    font-size: 28px;
+    font-weight: 700;
+    color: #9f1239;
 }
 
-/* Información de pago sci-fi */
+/* Payment info */
 .payment-info {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    padding: 40px;
+    padding: 0px;
     margin: 0;
+    border-top: 2px solid #fce7f3;
+    background: #fafafa;
     position: relative;
-    border-top: 1px solid #00d4ff;
+    z-index: 2;
 }
 
 .payment-title {
-    color: #00ff7f;
-    font-size: 15px;
+    color: #e11d48;
+    font-size: 20px;
     font-weight: 700;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-family: 'Orbitron', monospace;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    gap: 15px;
 }
 
 .payment-title::before {
-    content: '🚀';
-    font-size: 18px;
+    content: '🌹';
+    font-size: 20px;
 }
 
 .payment-card {
-    background: #0f0f23;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: inset 0 0 20px rgba(0, 212, 255, 0.1);
-    border-left: 3px solid #00ff7f;
-    border: 1px solid #2a2a3e;
+    background: white;
+    padding: 0px;
+    border-radius: 20px;
+    border-left: 6px solid #e11d48;
+    border: 2px solid #fce7f3;
+    box-shadow: 0 15px 40px rgba(159, 18, 57, 0.1);
 }
 
 .payment-details {
-    color: #8fa3d3;
-    font-size: 14px;
-    line-height: 1.6;
+    color: #9f1239;
+    font-size: 16px;
+    line-height: 1.8;
     font-weight: 400;
 }
 
 .payment-details strong {
-    color: #00d4ff;
+    color: #9f1239;
     font-weight: 700;
-    font-family: 'Orbitron', monospace;
 }
 
 .payment-highlight {
-    background: linear-gradient(135deg, #00d4ff 0%, #00ff7f 100%);
-    color: #0f0f23;
-    padding: 5px 12px;
-    border-radius: 12px;
+    background: linear-gradient(135deg, #9f1239, #e11d48);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 8px;
     font-weight: 700;
-    font-size: 12px;
-    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #9f1239, #be185d);
+    color: white;
+    padding: 38px 40px;
+    margin-top: 0;
+    border-top: 2px solid #fce7f3;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.company-info {
+    flex: 1;
+}
+
+.company-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 15px;
+    letter-spacing: -1.2px;
+}
+
+.company-details {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #fce7f3;
+    opacity: 0.95;
+}
+
+.footer-right {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.footer-note {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fdf2f8;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.footer-website {
+    font-size: 15px;
+    color: #f9a8d4;
+    font-weight: 700;
     letter-spacing: 1px;
-    font-family: 'Orbitron', monospace;
 }
 
-/* Elemento decorativo */
-.decorative-element {
-    position: absolute;
-    bottom: 40px;
-    right: 40px;
-    width: 55px;
-    height: 55px;
-    background: linear-gradient(135deg, #00d4ff 0%, #00ff7f 100%);
-    border-radius: 50%;
-    opacity: 0.2;
-    border: 2px solid #00ff7f;
-    animation: rotate 10s linear infinite;
-}
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.decorative-element::before {
-    content: '⚡';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-    opacity: 0.8;
-}
-
-/* Ajustes para impresión */
+/* Print adjustments */
 @media print {
-    body {
-        background: white;
-        color: black;
+    @page {
+        size: A4;
+        margin: 8mm;
     }
     
-    body::before {
-        display: none;
+    body {
+        background: white;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
     }
     
     .container {
         box-shadow: none;
         border-radius: 0;
-        border: 1px solid black;
-        backdrop-filter: none;
+        border: 1px solid #ccc;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
     }
     
-    .header::before,
-    .header::after {
-        display: none;
+    .header {
+        background: #be185d !important;
+        color: white !important;
+        page-break-inside: avoid;
     }
     
-    .totals-section::before {
-        display: none;
+    .totals-section {
+        background: #fdf2f8 !important;
+        page-break-inside: avoid;
     }
     
-    .decorative-element::before {
-        display: none;
+    .payment-info {
+        background: white !important;
+    }
+    
+    .footer {
+        background: #9f1239 !important;
+        color: white !important;
+        page-break-inside: avoid;
+    }
+    
+    .table-container {
+        page-break-inside: auto;
+    }
+    
+    .content-table tr {
+        page-break-inside: avoid;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        border-radius: 15px;
+    }
+    
+    .header {
+        padding: 40px 30px;
+    }
+    
+    .client-info {
+        margin: 0 30px;
+    }
+    
+    .table-container {
+        padding: 30px;
+    }
+    
+    .totals-section {
+        padding: 30px 35px;
+    }
+    
+    .payment-info {
+        padding: 30px;
+    }
+    
+    .footer {
+        padding: 30px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 25px;
+        text-align: left;
+    }
+    
+    .footer-right {
+        text-align: left;
+    }
+    
+    .main-title {
+        font-size: 38px;
+    }
+    
+    .logo-text {
+        font-size: 28px;
     }
 }

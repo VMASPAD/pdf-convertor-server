@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* FOREST GREEN PROFESSIONAL INVOICE DESIGN */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Merriweather:wght@300;400;500;600;700&display=swap');
+
+/* Configuración específica para PDF */
+@page {
+    size: A4;
+    margin: 8mm;
+}
 
 * {
     margin: 0;
@@ -7,94 +15,53 @@
 }
 
 body {
-    font-family: 'Space Grotesk', monospace;
-    background: #0a0a0a;
-    color: #ffffff;
-    line-height: 1.5;
+    font-family: 'Roboto', sans-serif;
+    background: #f0f4f1;
+    color: #1b5e20;
+    line-height: 1.6;
     font-size: 14px;
     min-height: 100vh;
-    position: relative;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 25% 25%, #00ff41 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, #ff0080 0%, transparent 50%);
-    opacity: 0.03;
-    pointer-events: none;
-    z-index: -1;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    margin: 0 auto;
-    background: #111111;
-    border: 1px solid #00ff41;
-    border-radius: 0;
+    background: white;
+    box-shadow: 0 6px 25px rgba(27, 94, 32, 0.1);
+    border-radius: 12px;
     overflow: hidden;
-    position: relative;
-    box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+    border: 2px solid #a5d6a7;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-/* Header cyberpunk */
+/* Header */
 .header {
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-    color: #00ff41;
-    padding: 40px 30px;
+    background: linear-gradient(135deg, #2e7d32, #388e3c);
+    color: white;
+    padding: 45px 35px;
     position: relative;
     overflow: hidden;
-    border-bottom: 2px solid #00ff41;
 }
 
 .header::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        linear-gradient(90deg, transparent 0%, rgba(0, 255, 65, 0.1) 50%, transparent 100%),
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 98px,
-            rgba(0, 255, 65, 0.05) 100px
-        );
-    animation: scan 3s linear infinite;
-}
-
-@keyframes scan {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
-.header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, #00ff41 0%, #ff0080 50%, #00ff41 100%);
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
+    top: -50%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     position: relative;
     z-index: 2;
 }
@@ -102,138 +69,124 @@ body::before {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 18px;
 }
 
 .logo-icon {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, #00ff41 0%, #ff0080 100%);
-    border-radius: 0;
+    width: 50px;
+    height: 50px;
+    background: #1b5e20;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: 16px;
-    color: #000000;
-    box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
-    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .logo-text {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #00ff41;
-    text-transform: uppercase;
+    font-family: 'Merriweather', serif;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
 }
 
 .logo-subtitle {
-    font-size: 8px;
-    opacity: 0.7;
-    letter-spacing: 5px;
+    font-size: 10px;
+    opacity: 0.85;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    margin-top: -1px;
-    color: #ff0080;
-    font-family: 'JetBrains Mono', monospace;
+    margin-top: -3px;
 }
 
 .main-title {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 36px;
+    font-family: 'Merriweather', serif;
+    font-size: 60px;
     font-weight: 700;
-    letter-spacing: 4px;
+    letter-spacing: -2px;
     text-align: center;
     position: relative;
     z-index: 2;
-    color: #00ff41;
-    text-transform: uppercase;
-    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Información del cliente - estilo tech */
+/* Client info */
 .client-info {
-    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-    margin: 0 30px;
-    padding: 25px;
-    border-radius: 0;
-    margin-top: -15px;
+    background: linear-gradient(145deg, #e8f5e8, #f1f8e9);
+    margin: 0 35px;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: -20px;
     position: relative;
-    z-index: 3;
-    border: 1px solid #00ff41;
-    box-shadow: inset 0 0 20px rgba(0, 255, 65, 0.1);
+    z-index: 2;
+    border: 1px solid #c8e6c9;
+    box-shadow: 0 4px 15px rgba(27, 94, 32, 0.08);
 }
 
 .client-section {
-    color: #ff0080;
-    font-size: 10px;
+    color: #2e7d32;
+    font-size: 15px;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 1px;
 }
 
 .client-details {
-    color: #cccccc;
-    font-size: 13px;
-    line-height: 1.6;
+    color: #1b5e20;
+    font-size: 14px;
+    line-height: 1.7;
     font-weight: 400;
-    font-family: 'JetBrains Mono', monospace;
 }
 
 .date-badge {
     position: absolute;
-    top: 25px;
-    right: 25px;
-    background: linear-gradient(135deg, #ff0080 0%, #00ff41 100%);
-    color: #000000;
-    padding: 8px 15px;
-    border-radius: 0;
-    font-size: 10px;
-    font-weight: 700;
-    box-shadow: 0 0 15px rgba(255, 0, 128, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: 'JetBrains Mono', monospace;
-    border: 1px solid #00ff41;
+    top: 30px;
+    right: 30px;
+    background: #1b5e20;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 3px 8px rgba(27, 94, 32, 0.3);
 }
 
-/* Tabla futurista */
+/* Table */
 .table-container {
-    padding: 30px;
-    background: #0a0a0a;
+    padding: 0px;
+    background: white;
 }
 
 .content-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    border-radius: 0;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
-    border: 1px solid #00ff41;
+    border: 2px solid #c8e6c9;
+    box-shadow: 0 4px 15px rgba(27, 94, 32, 0.08);
 }
 
 .content-table th {
-    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
-    color: #00ff41;
-    padding: 15px;
+    background: linear-gradient(145deg, #e8f5e8, #c8e6c9);
+    color: #1b5e20;
+    padding: 18px 20px;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 10px;
-    letter-spacing: 2px;
-    font-family: 'JetBrains Mono', monospace;
-    border-bottom: 1px solid #00ff41;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #a5d6a7;
 }
 
 .content-table th:first-child {
-    border-radius: 0;
+    border-radius: 10px 0 0 0;
 }
 
 .content-table th:last-child {
-    border-radius: 0;
+    border-radius: 0 10px 0 0;
     text-align: right;
 }
 
@@ -242,65 +195,61 @@ body::before {
 }
 
 .content-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #333333;
-    background: #111111;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e8f5e8;
+    background: white;
     transition: all 0.3s ease;
-    font-size: 13px;
-    font-family: 'JetBrains Mono', monospace;
 }
 
 .content-table tbody tr:hover td {
-    background: linear-gradient(135deg, #1a1a1a 0%, #0f3f0f 100%);
-    box-shadow: inset 0 0 10px rgba(0, 255, 65, 0.1);
+    background: #f1f8e9;
+    transform: translateY(-1px);
 }
 
 .content-table td:nth-child(2) {
     text-align: center;
     font-weight: 600;
-    color: #ff0080;
+    color: #2e7d32;
 }
 
 .content-table td:last-child {
     text-align: right;
     font-weight: 700;
-    color: #00ff41;
-    font-size: 14px;
+    color: #1b5e20;
+    font-size: 16px;
+}
+
+.content-table tbody tr:last-child td {
+    border-bottom: none;
 }
 
 .content-table tbody tr:last-child td:first-child {
-    border-radius: 0;
+    border-radius: 0 0 0 10px;
 }
 
 .content-table tbody tr:last-child td:last-child {
-    border-radius: 0;
+    border-radius: 0 0 10px 0;
 }
 
-/* Sección de totales cyberpunk */
+/* Totals section */
 .totals-section {
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-    padding: 25px 30px;
+    background: linear-gradient(145deg, #e8f5e8, #c8e6c9);
     margin: 0;
-    color: #00ff41;
-    position: relative;
-    border-top: 2px solid #00ff41;
-}
-
-.totals-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, #00ff41 0%, #ff0080 50%, #00ff41 100%);
-    animation: pulse 2s ease-in-out infinite;
+    color: #1b5e20;
+    border-top: 2px solid #a5d6a7;
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 25px 35px;
 }
 
 .totals-grid {
     display: grid;
+    width: 22rem;
     grid-template-columns: 1fr auto;
-    gap: 12px;
+    gap: 15px;
     align-items: center;
 }
 
@@ -311,152 +260,266 @@ body::before {
 .totals-label {
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 11px;
-    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 1px;
+    font-size: 14px;
+    color: #2e7d32;
 }
 
 .totals-value {
     text-align: right;
     font-weight: 700;
-    font-size: 13px;
-    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    color: #1b5e20;
 }
 
-.subtotal-label {
-    opacity: 0.8;
+.subtotal-label,
+.tax-label {
+    opacity: 0.85;
 }
 
-.subtotal-value {
-    opacity: 0.8;
+.subtotal-value,
+.tax-value {
+    opacity: 0.85;
 }
 
 .tax-label {
-    opacity: 0.6;
-    font-size: 9px;
+    font-size: 13px;
 }
 
 .tax-value {
-    opacity: 0.6;
-    font-size: 11px;
+    font-size: 15px;
 }
 
 .total-row {
-    border-top: 1px solid rgba(0, 255, 65, 0.3);
-    padding-top: 12px;
-    margin-top: 12px;
+    border-top: 2px solid #81c784;
+    padding-top: 15px;
+    margin-top: 15px;
 }
 
 .total-label {
-    font-size: 14px;
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
     font-weight: 700;
-    color: #ff0080;
+    color: #1b5e20;
 }
 
 .total-value {
-    font-size: 18px;
+    font-family: 'Merriweather', serif;
+    font-size: 22px;
     font-weight: 700;
-    color: #00ff41;
-    text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+    color: #1b5e20;
 }
 
-/* Información de pago tech */
+/* Payment info */
 .payment-info {
-    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-    padding: 30px;
+    padding: 0px;
     margin: 0;
-    position: relative;
-    border-top: 1px solid #00ff41;
+    border-top: 2px solid #c8e6c9;
+    background: #fafafa;
 }
 
 .payment-title {
-    color: #ff0080;
-    font-size: 14px;
+    color: #2e7d32;
+    font-size: 18px;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-family: 'JetBrains Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    gap: 12px;
 }
 
 .payment-title::before {
-    content: '⚡';
-    font-size: 16px;
+    content: '🌿';
+    font-size: 18px;
 }
 
 .payment-card {
-    background: #111111;
-    padding: 20px;
-    border-radius: 0;
-    box-shadow: inset 0 0 20px rgba(0, 255, 65, 0.1);
-    border-left: 3px solid #00ff41;
-    border: 1px solid #333333;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 4px solid #2e7d32;
+    border: 1px solid #c8e6c9;
+    box-shadow: 0 4px 15px rgba(27, 94, 32, 0.08);
 }
 
 .payment-details {
-    color: #cccccc;
-    font-size: 13px;
-    line-height: 1.6;
+    color: #1b5e20;
+    font-size: 15px;
+    line-height: 1.7;
     font-weight: 400;
-    font-family: 'JetBrains Mono', monospace;
 }
 
 .payment-details strong {
-    color: #00ff41;
+    color: #1b5e20;
     font-weight: 700;
 }
 
 .payment-highlight {
-    background: linear-gradient(135deg, #00ff41 0%, #ff0080 100%);
-    color: #000000;
-    padding: 4px 10px;
-    border-radius: 0;
+    background: #1b5e20;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
+    color: white;
+    padding: 30px 35px;
+    margin-top: 0;
+    border-top: 2px solid #c8e6c9;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 35px;
+}
+
+.company-info {
+    flex: 1;
+}
+
+.company-name {
+    font-family: 'Merriweather', serif;
+    font-size: 20px;
     font-weight: 700;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: 'JetBrains Mono', monospace;
+    color: white;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
 }
 
-/* Elemento decorativo */
-.decorative-element {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #00ff41 0%, #ff0080 100%);
-    border-radius: 0;
-    opacity: 0.2;
-    border: 1px solid #00ff41;
+.company-details {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #c8e6c9;
+    opacity: 0.95;
 }
 
-/* Ajustes para impresión */
+.footer-right {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.footer-note {
+    font-size: 15px;
+    font-weight: 600;
+    color: #e8f5e8;
+    margin-bottom: 6px;
+    font-style: italic;
+}
+
+.footer-website {
+    font-size: 14px;
+    color: #a5d6a7;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Print adjustments */
 @media print {
-    body {
-        background: white;
-        color: black;
+    @page {
+        size: A4;
+        margin: 8mm;
     }
     
-    body::before {
-        display: none;
+    body {
+        background: white;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
     }
     
     .container {
         box-shadow: none;
         border-radius: 0;
-        border: 1px solid black;
+        border: 1px solid #ccc;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
     }
     
-    .header::before,
-    .header::after {
-        display: none;
+    .header {
+        background: #2e7d32 !important;
+        color: white !important;
+        page-break-inside: avoid;
     }
     
-    .totals-section::before {
-        display: none;
+    .totals-section {
+        background: #f0f4f1 !important;
+        page-break-inside: avoid;
+    }
+    
+    .payment-info {
+        background: white !important;
+    }
+    
+    .footer {
+        background: #1b5e20 !important;
+        color: white !important;
+        page-break-inside: avoid;
+    }
+    
+    .table-container {
+        page-break-inside: auto;
+    }
+    
+    .content-table tr {
+        page-break-inside: avoid;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        border-radius: 8px;
+    }
+    
+    .header {
+        padding: 35px 25px;
+    }
+    
+    .client-info {
+        margin: 0 25px;
+    }
+    
+    .table-container {
+        padding: 25px;
+    }
+    
+    .totals-section {
+        padding: 25px 30px;
+    }
+    
+    .payment-info {
+        padding: 25px;
+    }
+    
+    .footer {
+        padding: 25px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: left;
+    }
+    
+    .footer-right {
+        text-align: left;
+    }
+    
+    .main-title {
+        font-size: 32px;
+    }
+    
+    .logo-text {
+        font-size: 22px;
     }
 }
