@@ -1,525 +1,408 @@
-/* FOREST GREEN PROFESSIONAL INVOICE DESIGN */
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Merriweather:wght@300;400;500;600;700&display=swap');
-
-/* Configuración específica para PDF */
+/* A4 Page Setup */
 @page {
-    size: A4;
-    margin: 8mm;
+  size: A4;
+  margin: 0.5in;
 }
 
-* {
+@media print {
+  body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+  }
+  .invoice-container {
+    max-width: 210mm;
+    min-height: 297mm;
+  }
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background: #f0f4f1;
-    color: #1b5e20;
-    line-height: 1.6;
-    font-size: 14px;
-    min-height: 100vh;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+/* Color Variables in RGB - Red Palette */
+:root {
+  --primary: rgb(239, 68, 68);
+  --primary-foreground: rgb(255, 255, 255);
+  --secondary: rgb(254, 242, 242);
+  --secondary-foreground: rgb(127, 29, 29);
+  --background: rgb(255, 255, 255);
+  --foreground: rgb(15, 23, 42);
+  --card: rgb(255, 255, 255);
+  --card-foreground: rgb(15, 23, 42);
+  --muted: rgb(254, 242, 242);
+  --muted-foreground: rgb(127, 29, 29);
+  --accent: rgb(252, 228, 228);
+  --accent-foreground: rgb(153, 27, 27);
+  --border: rgb(252, 165, 165);
+  --chart-1: rgb(220, 38, 38);
+  --chart-2: rgb(185, 28, 28);
+  --chart-3: rgb(153, 27, 27);
 }
 
-.container {
-    background: white;
-    box-shadow: 0 6px 25px rgba(27, 94, 32, 0.1);
-    border-radius: 12px;
-    overflow: hidden;
-    border: 2px solid #a5d6a7;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+/* Layout Utilities - WeasyPrint Compatible */
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Header */
-.header {
-    background: linear-gradient(135deg, #2e7d32, #388e3c);
-    color: white;
-    padding: 45px 35px;
-    position: relative;
-    overflow: hidden;
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 0.75rem; }
+.p-4 { padding: 1rem; }
+.px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+
+.m-2 { margin: 0.5rem; }
+.m-4 { margin: 1rem; }
+.mb-1 { margin: 0px; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mr-2 { margin-right: 0.5rem; }
+.ml-2 { margin-left: 0.5rem; }
+
+/* Border Utilities */
+.border { border-width: 1px; border-style: solid; }
+.border-2 { border-width: 2px; border-style: solid; }
+.border-b { border-bottom-width: 1px; border-bottom-style: solid; }
+.border-b-2 { border-bottom-width: 2px; border-bottom-style: solid; }
+.border-t-2 { border-top-width: 2px; border-top-style: solid; }
+.border-t-3 { border-top-width: 3px; border-top-style: solid; }
+
+/* Border Radius */
+.rounded { border-radius: 0.25rem; }
+.rounded-md { border-radius: 0.375rem; }
+.rounded-lg { border-radius: 0.5rem; }
+.rounded-2xl { border-radius: 1rem; }
+
+/* Display & Layout - WeasyPrint Compatible */
+.flex { display: flex; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+
+.flex-1 { flex: 1; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.flex-row { flex-direction: row; }
+
+/* Simple grid replacement with flexbox */
+.simple-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.simple-grid > * {
+  width: 34%;
+  margin: 0px;
 }
 
-.header::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 300px;
-    height: 300px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
+/* Positioning */
+.top-0 { top: 0px; }
+.right-0 { right: 0px; }
+.left-50 { left: 50%; }
+.transform-center { transform: translateX(-50%); }
+.z-10 { z-index: 10; }
+.z-5 { z-index: 5; }
+
+/* Sizing - A4 Optimized */
+.w-16 { width: 4rem; }
+.w-24 { width: 6rem; }
+.w-32 { width: 8rem; }
+.w-48 { width: 12rem; }
+.w-full { width: 100%; }
+.w-50 { width: 50%; }
+.h-32 { height: 8rem; }
+.max-h-24 { max-height: 6rem; }
+.max-w-xs { max-width: 20rem; }
+.max-w-sm { max-width: 24rem; }
+
+/* Text Utilities - Smaller for A4 */
+.text-xs { font-size: 0.75rem; line-height: 1rem; margin: 0px}
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; margin: 0px}
+.text-base { font-size: 1rem; line-height: 1.5rem; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; margin: 0px}
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.text-2xl { font-size: 1.5rem; line-height: 2rem; }
+
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* Opacity */
+.opacity-10 { opacity: 0.1; }
+.opacity-80 { opacity: 0.8; }
+.opacity-90 { opacity: 0.9; }
+
+/* Overflow */
+.overflow-hidden { overflow: hidden; }
+
+/* Effects - Reduced for print */
+.shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+.shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+
+.backdrop-blur-sm { backdrop-filter: blur(4px); }
+
+/* Background */
+.bg-white\/10 { background-color: rgba(255, 255, 255, 0.1); }
+
+/* Hover Effects */
+.hover\:bg-opacity-50:hover { background-color: rgba(0, 0, 0, 0.05); }
+
+/* Invoice Specific Classes - WeasyPrint Optimized */
+.invoice-container { 
+  margin: 0 auto;
+  max-width: 210mm;
+  background-color: rgb(255, 255, 255);
+  font-size: 0.875rem;
 }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 35px;
-    position: relative;
-    z-index: 2;
+.invoice-wrapper {
+  border: 1px solid rgb(252, 165, 165);
+  border-radius: 0.375rem;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 18px;
+.invoice-header {
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgb(239, 68, 68), rgb(185, 28, 28));
+  color: rgb(255, 255, 255);
+  min-height: 120px;
 }
 
-.logo-icon {
-    width: 50px;
-    height: 50px;
-    background: #1b5e20;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 20px;
-    color: white;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+.invoice-header-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
 }
 
-.logo-text {
-    font-family: 'Merriweather', serif;
-    font-size: 26px;
-    font-weight: 600;
-    letter-spacing: -0.5px;
+.header-left {
+  width: 40%;
+  float: left;
 }
 
-.logo-subtitle {
-    font-size: 10px;
-    opacity: 0.85;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-top: -3px;
+.header-right {
+  width: 40%;
+  float: right;
+  text-align: right;
 }
 
-.main-title {
-    font-family: 'Merriweather', serif;
-    font-size: 60px;
-    font-weight: 700;
-    letter-spacing: -2px;
-    text-align: center;
-    position: relative;
-    z-index: 2;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-}
-
-/* Client info */
-.client-info {
-    background: linear-gradient(145deg, #e8f5e8, #f1f8e9);
-    margin: 0 35px;
-    padding: 30px;
-    border-radius: 10px;
-    margin-top: -20px;
-    position: relative;
-    z-index: 2;
-    border: 1px solid #c8e6c9;
-    box-shadow: 0 4px 15px rgba(27, 94, 32, 0.08);
-}
-
-.client-section {
-    color: #2e7d32;
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.client-details {
-    color: #1b5e20;
-    font-size: 14px;
-    line-height: 1.7;
-    font-weight: 400;
-}
-
-.date-badge {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    background: #1b5e20;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    box-shadow: 0 3px 8px rgba(27, 94, 32, 0.3);
-}
-
-/* Table */
-.table-container {
-    padding: 0px;
-    background: white;
-}
-
-.content-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 2px solid #c8e6c9;
-    box-shadow: 0 4px 15px rgba(27, 94, 32, 0.08);
-}
-
-.content-table th {
-    background: linear-gradient(145deg, #e8f5e8, #c8e6c9);
-    color: #1b5e20;
-    padding: 18px 20px;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 1px;
-    border-bottom: 2px solid #a5d6a7;
-}
-
-.content-table th:first-child {
-    border-radius: 10px 0 0 0;
-}
-
-.content-table th:last-child {
-    border-radius: 0 10px 0 0;
-    text-align: right;
-}
-
-.content-table th:nth-child(2) {
-    text-align: center;
-}
-
-.content-table td {
-    padding: 16px 20px;
-    border-bottom: 1px solid #e8f5e8;
-    background: white;
-    transition: all 0.3s ease;
-}
-
-.content-table tbody tr:hover td {
-    background: #f1f8e9;
-    transform: translateY(-1px);
-}
-
-.content-table td:nth-child(2) {
-    text-align: center;
-    font-weight: 600;
-    color: #2e7d32;
-}
-
-.content-table td:last-child {
-    text-align: right;
-    font-weight: 700;
-    color: #1b5e20;
-    font-size: 16px;
-}
-
-.content-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-.content-table tbody tr:last-child td:first-child {
-    border-radius: 0 0 0 10px;
-}
-
-.content-table tbody tr:last-child td:last-child {
-    border-radius: 0 0 10px 0;
-}
-
-/* Totals section */
-.totals-section {
-    background: linear-gradient(145deg, #e8f5e8, #c8e6c9);
-    margin: 0;
-    color: #1b5e20;
-    border-top: 2px solid #a5d6a7;
-    display: flex;
-    flex-direction: row;
-    gap: 10rem;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 25px 35px;
-}
-
-.totals-grid {
-    display: grid;
-    width: 22rem;
-    grid-template-columns: 1fr auto;
-    gap: 15px;
-    align-items: center;
-}
-
-.totals-row {
-    display: contents;
-}
-
-.totals-label {
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 14px;
-    color: #2e7d32;
-}
-
-.totals-value {
-    text-align: right;
-    font-weight: 700;
-    font-size: 16px;
-    color: #1b5e20;
-}
-
-.subtotal-label,
-.tax-label {
-    opacity: 0.85;
-}
-
-.subtotal-value,
-.tax-value {
-    opacity: 0.85;
-}
-
-.tax-label {
-    font-size: 13px;
-}
-
-.tax-value {
-    font-size: 15px;
-}
-
-.total-row {
-    border-top: 2px solid #81c784;
-    padding-top: 15px;
-    margin-top: 15px;
-}
-
-.total-label {
-    font-family: 'Merriweather', serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #1b5e20;
-}
-
-.total-value {
-    font-family: 'Merriweather', serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: #1b5e20;
-}
-
-/* Payment info */
-.payment-info {
-    padding: 0px;
-    margin: 0;
-    border-top: 2px solid #c8e6c9;
-    background: #fafafa;
-}
-
-.payment-title {
-    color: #2e7d32;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.payment-title::before {
-    content: '🌿';
-    font-size: 18px;
-}
-
-.payment-card {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    border-left: 4px solid #2e7d32;
-    border: 1px solid #c8e6c9;
-    box-shadow: 0 4px 15px rgba(27, 94, 32, 0.08);
-}
-
-.payment-details {
-    color: #1b5e20;
-    font-size: 15px;
-    line-height: 1.7;
-    font-weight: 400;
-}
-
-.payment-details strong {
-    color: #1b5e20;
-    font-weight: 700;
-}
-
-.payment-highlight {
-    background: #1b5e20;
-    color: white;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 13px;
-}
-
-/* Footer */
-.footer {
-    background: linear-gradient(135deg, #1b5e20, #2e7d32);
-    color: white;
-    padding: 30px 35px;
-    margin-top: 0;
-    border-top: 2px solid #c8e6c9;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 35px;
+.header-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
 }
 
 .company-info {
-    flex: 1;
+  padding: 0.5rem;
+  width: 10rem;
+  border-radius: 0.375rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
 }
 
-.company-name {
-    font-family: 'Merriweather', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 10px;
-    letter-spacing: -0.5px;
+.invoice-number {
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  background-color: rgb(252, 228, 228);
+  color: rgb(153, 27, 27);
+  display: inline-block;
 }
 
-.company-details {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #c8e6c9;
-    opacity: 0.95;
+.header-decoration {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8rem;
+  height: 8rem;
+  opacity: 0.1;
+  background: radial-gradient(circle, rgb(220, 38, 38), transparent);
 }
 
-.footer-right {
-    text-align: right;
-    flex-shrink: 0;
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.footer-note {
-    font-size: 15px;
-    font-weight: 600;
-    color: #e8f5e8;
-    margin-bottom: 6px;
-    font-style: italic;
+.invoice-details {
+  padding: 1rem;
+  background-color: rgb(254, 242, 242);
 }
 
-.footer-website {
-    font-size: 14px;
-    color: #a5d6a7;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+.general-info {
+  max-width: 20rem;
 }
 
-/* Print adjustments */
-@media print {
-    @page {
-        size: A4;
-        margin: 8mm;
-    }
-    
-    body {
-        background: white;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .container {
-        box-shadow: none;
-        border-radius: 0;
-        border: 1px solid #ccc;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    .header {
-        background: #2e7d32 !important;
-        color: white !important;
-        page-break-inside: avoid;
-    }
-    
-    .totals-section {
-        background: #f0f4f1 !important;
-        page-break-inside: avoid;
-    }
-    
-    .payment-info {
-        background: white !important;
-    }
-    
-    .footer {
-        background: #1b5e20 !important;
-        color: white !important;
-        page-break-inside: avoid;
-    }
-    
-    .table-container {
-        page-break-inside: auto;
-    }
-    
-    .content-table tr {
-        page-break-inside: avoid;
-    }
+.info-card {
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid rgb(239, 68, 68);
+  background-color: rgb(255, 255, 255);
+  color: rgb(15, 23, 42);
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .container {
-        margin: 20px;
-        border-radius: 8px;
-    }
-    
-    .header {
-        padding: 35px 25px;
-    }
-    
-    .client-info {
-        margin: 0 25px;
-    }
-    
-    .table-container {
-        padding: 25px;
-    }
-    
-    .totals-section {
-        padding: 25px 30px;
-    }
-    
-    .payment-info {
-        padding: 25px;
-    }
-    
-    .footer {
-        padding: 25px;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        gap: 20px;
-        text-align: left;
-    }
-    
-    .footer-right {
-        text-align: left;
-    }
-    
-    .main-title {
-        font-size: 32px;
-    }
-    
-    .logo-text {
-        font-size: 22px;
-    }
+.products-section {
+  padding: 1rem;
+  margin: 0.5rem;
+  border: 1px solid rgb(153, 27, 27);
+  border-radius: 0.5rem;
+  background-color: rgb(255, 255, 255);
 }
+
+.products-header {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  background-color: rgb(248, 250, 252);
+}
+
+.products-table {
+  width: 100%;
+  font-size: 0.75rem;
+  border-collapse: collapse;
+}
+
+.table-header {
+  border-bottom: 2px solid rgb(239, 68, 68);
+}
+
+.table-row {
+  border-bottom: 1px solid rgb(226, 232, 240);
+}
+
+.product-item {
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  background-color: rgb(248, 250, 252);
+}
+
+.totals-section {
+  padding: 1rem;
+  border-top: 3px solid rgb(239, 68, 68);
+  background-color: rgb(254, 242, 242);
+}
+
+.totals-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-info {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.payment-header {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  color: rgb(239, 68, 68);
+  background-color: rgb(252, 228, 228);
+}
+
+.payment-card {
+  padding: 0.75rem;
+  width: fit-content;
+  border-radius: 0.375rem;
+  border: 1px solid rgb(185, 28, 28);
+  background-color: rgb(255, 255, 255);
+}
+
+.summary-section {
+  width: fit-content;
+  min-width: 200px;
+}
+
+.summary-header {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  color: rgb(239, 68, 68);
+  background-color: rgb(252, 228, 228);
+}
+
+.summary-card {
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid rgb(153, 27, 27);
+  background-color: rgb(255, 255, 255);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgb(226, 232, 240);
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-top: 2px solid rgb(239, 68, 68);
+  margin-top: 0.25rem;
+}
+
+.total-amount {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: rgb(0, 0, 0); 
+}
+
+.invoice-footer {
+  padding: 1rem;
+  border-top: 2px solid rgb(226, 232, 240);
+  background-color: rgb(248, 250, 252);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.footer-content > * {
+  margin-right: 1.5rem;
+}
+
+.footer-content > *:last-child {
+  margin-right: 0;
+}
+
+/* Color Classes */
+.text-primary { color: rgb(0, 0, 0); }
+.text-secondary-foreground { color: rgb(71, 85, 105); margin: 0px}
+.text-card-foreground { color: rgb(15, 23, 42); width: fit-content; margin: 0px}
+.text-muted-foreground { color: rgb(100, 116, 139); }
+.text-foreground { color: rgb(15, 23, 42); }
+.text-chart-1 { color: rgb(0, 0, 0); }
+.text-chart-2 { color: rgb(0, 0, 0); }
+
+.bg-secondary { background-color: rgb(254, 242, 242); }
+.bg-card { background-color: rgb(255, 255, 255); }
+.bg-muted { background-color: rgb(254, 242, 242); }
+.bg-accent { background-color: rgb(252, 228, 228); }
+.bg-primary { background-color: rgb(239, 68, 68); }
+
+.border-primary { border-color: rgb(239, 68, 68); }
+.border-border { border-color: rgb(252, 165, 165); }
+.border-chart-2 { border-color: rgb(185, 28, 28); }
+.border-chart-3 { border-color: rgb(153, 27, 27); }

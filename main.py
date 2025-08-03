@@ -20,29 +20,6 @@ def savePdf(name, template):
     
     # CSS adicional para maximizar el uso del espacio
     pdf_optimization_css = """
-    @page {
-        size: A4;
-        margin: 10mm 10mm 10mm 10mm;  /* Márgenes mínimos */
-    }
-    
-    body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        box-sizing: border-box;
-    }
-    
-    * {
-        box-sizing: border-box;
-    }
-    
-    .container {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        padding: 0;
-    }
     """
     
     # Leer el contenido del archivo CSS seleccionado
